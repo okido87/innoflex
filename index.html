@@ -1,10 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InnoFlex ERP - Hồ sơ năng lực</title>
+    
+    <!-- SEO and Shareable Link Meta Tags -->
+    <meta property="og:title" content="InnoFlex ERP - Hồ sơ năng lực">
+    <meta property="og:description" content="Khám phá giải pháp vận hành bán lẻ đa kênh toàn diện của InnoFlex ERP, giúp doanh nghiệp tối ưu hóa quy trình, minh bạch tài chính và tăng trưởng bền vững.">
+    <meta property="og:image" content="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+    <meta property="og:url" content="URL_CUA_BAN_TAI_DAY">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&display=swap');
@@ -38,7 +45,7 @@
         body.view-presentation { overflow: hidden; }
         body.view-landing { overflow-y: auto; }
         
-        #landing-page-mode, #landing-page-menu, #landing-page-logo { display: none; }
+        #landing-page-mode, #landing-page-menu { display: none; }
         body.view-landing #landing-page-mode, body.view-landing #landing-page-menu { display: block; }
         body.view-landing #presentation-mode { display: none; }
         body.view-landing .nav-btn, body.view-landing .progress-bar-container { display: none; }
@@ -70,13 +77,13 @@
         .image-content { flex: 0.8; min-width: 0; border-radius: 12px; overflow: hidden; }
         .image-content img { width: 100%; height: 100%; object-fit: cover; }
         
-        h1 { font-size: clamp(2rem, 4.5vw, 4.5rem); font-weight: 900; color: white; margin: 0 0 1rem 0; line-height: 1.1; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); position: relative; overflow: hidden; display: inline-block;}
+        h1 { font-size: clamp(2.4rem, 5.4vw, 5.4rem); font-weight: 900; color: white; margin: 0 0 1.2rem 0; line-height: 1.1; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); position: relative; overflow: hidden; display: inline-block;}
         h1.shine-effect::after { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); animation: shine 3s infinite linear; animation-delay: 1s; }
-        h2 { font-size: clamp(1.8rem, 2.5vw, 2.5rem); font-weight: 700; color: white; margin: 0 auto 1.5rem auto; border-bottom: 4px solid var(--accent-blue); display: inline-block; padding-bottom: 0.75rem; flex-shrink: 0; }
-        h3 { font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 700; color: var(--accent-blue); margin: 0 0 1rem 0; }
-        p { font-size: clamp(0.8rem, 1.2vw, 1.1rem); line-height: 1.7; color: var(--text-secondary); }
-        .card li { font-size: clamp(0.8rem, 1vw, 0.95rem); margin-bottom: 10px; line-height: 1.6; text-align: left;}
-        .card li svg { width: 18px; height: 18px; margin-right: 10px; margin-top: 3px; color: var(--accent-blue); float: left;}
+        h2 { font-size: clamp(2.1rem, 3vw, 3rem); font-weight: 700; color: white; margin: 0 auto 1.8rem auto; border-bottom: 4px solid var(--accent-blue); display: inline-block; padding-bottom: 0.9rem; flex-shrink: 0; }
+        h3 { font-size: clamp(1.3rem, 1.8vw, 1.6rem); font-weight: 700; color: var(--accent-blue); margin: 0 0 1.2rem 0; }
+        p { font-size: clamp(1rem, 1.4vw, 1.3rem); line-height: 1.7; color: var(--text-secondary); }
+        .card li { font-size: clamp(1rem, 1.2vw, 1.15rem); margin-bottom: 12px; line-height: 1.6; text-align: left;}
+        .card li svg { width: 20px; height: 20px; margin-right: 12px; margin-top: 4px; color: var(--accent-blue); float: left;}
         
         .grid-container-fill { flex-grow: 1; display: grid; gap: 2%; width: 100%; }
         .grid-2-fill { grid-template-columns: repeat(2, 1fr); }
@@ -84,8 +91,8 @@
         .grid-2x2-fill { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
         
         .card { background: rgba(30, 41, 59, 0.7); padding: 2.5%; border-radius: 12px; text-align: left; border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-        .card .illustration { width: 100%; height: 100px; border-radius: 8px; object-fit: cover; margin-bottom: 1rem; }
-        .divider-line { width: 100px; border: none; height: 1px; background-color: rgba(255, 255, 255, 0.5); margin: 1rem auto; }
+        .card .illustration { width: 100%; height: 120px; border-radius: 8px; object-fit: cover; margin-bottom: 1.2rem; }
+        .divider-line { width: 120px; border: none; height: 1px; background-color: rgba(255, 255, 255, 0.5); margin: 1.2rem auto; }
         
         .nav-btn { position: fixed; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.3); color: white; border: 1px solid var(--border-color); padding: 15px; cursor: pointer; z-index: 100; font-size: 24px; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; transition: background-color 0.3s ease; }
         .nav-btn:hover { background-color: rgba(56, 189, 248, 0.2); }
@@ -94,8 +101,8 @@
         .progress-bar-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 6px; background-color: rgba(45, 55, 72, 0.5); z-index: 50; }
         #progress-bar { width: 0; height: 100%; background: linear-gradient(90deg, var(--accent-green), var(--accent-blue)); transition: width 0.5s ease-out; border-radius: 0 3px 3px 0; }
         
-        #landing-page-mode section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 5vw 50px; box-sizing: border-box; border-bottom: 1px solid var(--border-color); }
-        #landing-page-mode .slide-content { height: auto; max-height: 90vh; aspect-ratio: auto; }
+        #landing-page-mode section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 180px 5vw 80px; box-sizing: border-box; border-bottom: 1px solid var(--border-color); }
+        #landing-page-mode .slide-content { height: auto; max-height: none; aspect-ratio: auto; }
         body.view-landing .positioning-chart-v2 { min-height: 500px; aspect-ratio: 1.5 / 1; }
 
         #landing-page-menu { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px var(--shadow-color); display: flex; align-items: center; padding: 0 20px; box-sizing: border-box; height: 60px; justify-content: center; }
@@ -116,22 +123,25 @@
         .logo:hover { transform: scale(1.1) rotateY(0) !important; border-color: var(--accent-blue); animation-play-state: paused; }
         .logo img { max-width: 100%; max-height: 40px; object-fit: contain; transition: filter 0.3s; }
         .logo:hover img { filter: none; }
-        #doi-tac .logo img { filter: none; } /* full color for partner slide */
+        #doi-tac .logo img { filter: none; }
         
         .slide-logo { position: absolute; top: 2.5%; left: 2.5%; width: clamp(40px, 4vw, 60px); opacity: 0.8; z-index: 0; }
-        .version-info { position: absolute; bottom: 2%; right: 2.5%; font-size: clamp(0.6rem, 0.8vw, 0.7rem); color: var(--text-secondary); opacity: 0.7; }
+        .version-info { position: absolute; bottom: 2%; right: 2.5%; font-size: clamp(0.7rem, 0.9vw, 0.8rem); color: var(--text-secondary); opacity: 0.7; }
         
         .positioning-chart-v2 { flex-grow: 1; position: relative; width: 100%; background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5), var(--primary-bg) 70%); border: 1px solid var(--border-color); border-radius: 16px; box-sizing: border-box; }
         .axis { position: absolute; background-color: var(--border-color); }
         .x-axis { bottom: 50%; left: 5%; width: 90%; height: 1px; }
         .y-axis { left: 50%; top: 5%; height: 90%; width: 1px; }
-        .axis-label { position: absolute; color: var(--text-secondary); font-size: clamp(0.6rem, 1vw, 0.8rem); font-weight: 500; background: var(--primary-bg); padding: 2px 8px; letter-spacing: 1px; }
-        .x-axis-label { bottom: 50%; left: 95%; transform: translateY(50%); }
-        .y-axis-label { top: 2%; left: 50%; transform: translateX(-50%) rotate(-90deg); transform-origin: left top; }
+        .axis::after { content: '►'; position: absolute; color: var(--border-color); }
+        .x-axis::after { right: -15px; top: 50%; transform: translateY(-50%); }
+        .y-axis::after { top: -15px; left: 50%; transform: translateX(-50%) rotate(-90deg); }
+        .axis-label { position: absolute; color: var(--text-secondary); font-size: clamp(0.7rem, 1.1vw, 0.9rem); font-weight: 500; background: var(--primary-bg); padding: 2px 8px; letter-spacing: 1px; }
+        .x-axis-label { bottom: 50%; left: 5%; transform: translateY(150%); }
+        .y-axis-label { top: 95%; left: 50%; transform: translateX(-110%) rotate(-90deg); }
         .logo-group { position: absolute; }
-        .logo-group h4 { margin: 0 0 8px 0; font-size: clamp(0.7rem, 1vw, 0.9rem); color: var(--accent-green); text-align: center; }
-        .logo-item { background: rgba(255,255,255,0.07); border-radius: 6px; padding: 4px 8px; margin: 3px; font-size: clamp(0.65rem, 1vw, 0.8rem); display: inline-block; border: 1px solid transparent; }
-        .innoflex-logo { position: absolute; top: 20%; left: 20%; transform: translate(-50%, -50%); background: linear-gradient(45deg, var(--accent-blue), var(--accent-green)); color: white; padding: 10px 16px; border-radius: 10px; font-weight: 700; font-size: clamp(0.9rem, 1.3vw, 1.2rem); box-shadow: 0 0 30px var(--accent-blue); z-index: 2; border: 1px solid white; }
+        .logo-group h4 { margin: 0 0 8px 0; font-size: clamp(0.8rem, 1.2vw, 1rem); color: var(--accent-green); text-align: center; }
+        .logo-item { background: rgba(255,255,255,0.07); border-radius: 6px; padding: 5px 9px; margin: 4px; font-size: clamp(0.75rem, 1.1vw, 0.9rem); display: inline-block; border: 1px solid transparent; }
+        .innoflex-logo { position: absolute; top: 20%; left: 20%; transform: translate(-50%, -50%); background: linear-gradient(45deg, var(--accent-blue), var(--accent-green)); color: white; padding: 12px 18px; border-radius: 10px; font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.4rem); box-shadow: 0 0 30px var(--accent-blue); z-index: 2; border: 1px solid white; }
         #g1 { top: 12%; right: 8%; text-align: right; }
         #g2 { bottom: 12%; left: 8%; text-align: left; }
         #g3 { bottom: 12%; right: 8%; text-align: right; }
@@ -147,7 +157,7 @@
              #landing-page-menu ul { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--card-bg); flex-direction: column; padding: 0;}
              #landing-page-menu.menu-open ul { display: flex; }
              #mobile-menu-toggle { display: block; order: 3; }
-             #landing-page-logo { order: 1; }
+             #landing-page-logo { display: block; order: 1; }
         }
 
         @media (max-width: 768px) {
@@ -193,11 +203,11 @@
                 html: `<div class="slide-content" style="justify-content: center; text-align: center; background-image: url('https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.7);">
                          <img src="https://gpems.net/logo-icon.png" alt="InnoFlex ERP Logo" class="slide-logo animated">
                          <h1 class="animated delay-1 shine-effect" style="font-size: clamp(2.5rem, 5vw, 5rem);">InnoFlex ERP</h1>
-                         <p class="animated delay-2" style="font-size: clamp(1rem, 2vw, 1.8rem); color: var(--text-primary); font-weight: 400;">
+                         <p class="animated delay-2" style="font-size: clamp(1.2rem, 2.4vw, 2.1rem); color: var(--text-primary); font-weight: 400;">
                            Giải pháp Vận Hành Bán Lẻ Đa Kênh Toàn diện
                          </p>
                          <hr class="divider-line animated delay-2">
-                         <p class="animated delay-2" style="font-size: clamp(0.9rem, 1.5vw, 1.1rem); color: var(--accent-green); font-weight: 500; letter-spacing: 1px; margin-top: 0;">
+                         <p class="animated delay-2" style="font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--accent-green); font-weight: 500; letter-spacing: 1px; margin-top: 0;">
                            CÔNG TY TNHH GIẢI PHÁP SỐ EMS
                          </p>
                          <div class="version-info animated delay-2">Version 2.0 | July 2025</div>
@@ -210,15 +220,17 @@
                     <p class="animated delay-1" style="max-width: 90%; margin: 0 auto 1.5rem auto;">Các vấn đề trong ngành bán lẻ thường bắt nguồn từ sự thiếu liên kết giữa các bộ phận, dẫn đến những hệ quả ảnh hưởng trực tiếp đến lợi nhuận.</p>
                     <div class="grid-container-fill grid-2-fill">
                         <div class="card animated delay-2">
+                            <h3>🚨 Nguyên nhân Cốt lõi</h3>
                             <img src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nguyên nhân" class="illustration">
-                            <h3>🚨 Nguyên nhân Cốt lõi</h3><ul style="list-style:none; padding:0;">
+                            <ul style="list-style:none; padding:0;">
                             <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Kế toán & Vận hành không "nói chuyện" với nhau.</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không phân bổ chi phí (marketing, vận hành) theo kênh.</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Thiếu quy trình chuẩn hóa cho các nghiệp vụ phức tạp.</li>
                         </ul></div>
                         <div class="card animated delay-2">
+                            <h3>🔍 Hệ quả Trực tiếp</h3>
                             <img src="https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hệ quả" class="illustration">
-                            <h3>🔍 Hệ quả Trực tiếp</h3><ul style="list-style:none; padding:0;">
+                            <ul style="list-style:none; padding:0;">
                             <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không biết kênh nào đang Lỗ hay Lãi thực sự.</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không quản lý được dòng tiền về, thất thoát công nợ.</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không thể mở rộng quy mô một cách bền vững.</li>
@@ -227,15 +239,43 @@
                 </div></div>`
             },
             {
+                id: "chien-luoc-so-hoa",
+                menuTitle: "Chiến lược",
+                html: `<div class="slide-content"><div class="content-wrapper">
+                    <h2 class="animated">Lộ trình Chuyển đổi số cùng InnoFlex ERP</h2>
+                    <p class="animated delay-1" style="max-width: 90%; margin: 0 auto 1.5rem auto;">Chúng tôi đồng hành cùng doanh nghiệp qua từng giai đoạn, từ chuẩn hóa nền tảng đến tự động hóa thông minh để tăng trưởng bền vững.</p>
+                    <div class="grid-container-fill grid-3-fill">
+                        <div class="card animated delay-2">
+                            <h3>📌 Giai đoạn 1: Nền tảng</h3>
+                            <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nền tảng" class="illustration">
+                            <p><strong>(1-3 tháng)</strong> Chuẩn hóa quy trình, có số liệu kinh doanh chính xác qua việc kết nối đa kênh, đồng bộ vận hành và báo cáo lãi/lỗ real-time.</p>
+                        </div>
+                        <div class="card animated delay-2">
+                            <h3>🚀 Giai đoạn 2: Tối ưu</h3>
+                            <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tối ưu" class="illustration">
+                            <p><strong>(3-6 tháng)</strong> Tối ưu dòng tiền, quản lý tập trung và xây dựng dữ liệu khách hàng bằng cách liên kết Kế toán, quản lý tồn kho đa kho và xây dựng CRM.</p>
+                        </div>
+                        <div class="card animated delay-2">
+                            <h3>🏆 Giai đoạn 3: Tăng trưởng</h3>
+                             <img src="https://images.pexels.com/photos/6476587/pexels-photo-6476587.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tăng trưởng" class="illustration">
+                            <p><strong>(6-12 tháng)</strong> Tự động hóa, tăng cường trải nghiệm khách hàng và ra quyết định bằng dữ liệu qua Marketing Automation và Dashboard quản trị.</p>
+                        </div>
+                    </div>
+                </div></div>`
+            },
+            {
                 id: "thach-thuc",
                 menuTitle: "Thách thức",
                 html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">"Nỗi đau" Chi tiết theo Phòng ban</h2><div class="grid-container-fill grid-3-fill"><div class="card animated delay-1">
+                <h3>⚙️ Vận hành & Kho</h3>
                 <img src="https://images.pexels.com/photos/4483609/pexels-photo-4483609.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Vận hành" class="illustration">
-                <h3>⚙️ Vận hành & Kho</h3><ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg><b>Sai sót tồn kho:</b> Chênh lệch liên tục giữa sàn, kho vật lý và hệ thống.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5l.415-.207a.75.75 0 011.085.67V10.5m0 0h6m-6 0a.75.75 0 00-.75.75v3a.75.75 0 00.75.75h6a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75H8.25z" /></svg><b>Đóng đơn sai, thất thoát:</b> Tách/gộp combo, quà tặng thủ công dẫn đến nhầm lẫn.</li></ul></div><div class="card animated delay-2">
+                <ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg><b>Sai sót tồn kho:</b> Chênh lệch liên tục giữa sàn, kho vật lý và hệ thống.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5l.415-.207a.75.75 0 011.085.67V10.5m0 0h6m-6 0a.75.75 0 00-.75.75v3a.75.75 0 00.75.75h6a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75H8.25z" /></svg><b>Đóng đơn sai, thất thoát:</b> Tách/gộp combo, quà tặng thủ công dẫn đến nhầm lẫn.</li></ul></div><div class="card animated delay-2">
+                <h3>📊 Tài chính & Kế toán</h3>
                 <img src="https://images.pexels.com/photos/7567561/pexels-photo-7567561.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tài chính" class="illustration">
-                <h3>📊 Tài chính & Kế toán</h3><ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 000 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622a11.99 11.99 0 00-3.598-3.75c-.623-.38-.992-.38-1.602 0l-1.601.982z" /></svg><b>Sổ sách rời rạc:</b> Dữ liệu tài chính và quản trị không liên kết, đối chiếu thủ công.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg><b>Mù mờ dòng tiền:</b> Không biết chính xác khi nào tiền từ các sàn về, khó kiểm soát công nợ.</li></ul></div><div class="card animated delay-1">
+                <ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 000 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622a11.99 11.99 0 00-3.598-3.75c-.623-.38-.992-.38-1.602 0l-1.601.982z" /></svg><b>Sổ sách rời rạc:</b> Dữ liệu tài chính và quản trị không liên kết, đối chiếu thủ công.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg><b>Mù mờ dòng tiền:</b> Không biết chính xác khi nào tiền từ các sàn về, khó kiểm soát công nợ.</li></ul></div><div class="card animated delay-1">
+                <h3>🖥️ Công nghệ & Ban lãnh đạo</h3>
                 <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Công nghệ" class="illustration">
-                <h3>🖥️ Công nghệ & Ban lãnh đạo</h3><ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg><b>Hệ thống manh mún:</b> Dùng nhiều phần mềm rời rạc, dữ liệu không đồng bộ.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a4.5 4.5 0 004.5-4.5V6.75a4.5 4.5 0 00-4.5-4.5H6.75a4.5 4.5 0 00-4.5 4.5v8.25z" /></svg><b>Hạ tầng yếu kém:</b> Server quá tải, sập hệ thống khi có chiến dịch sale lớn.</li></ul></div></div></div></div>`
+                <ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg><b>Hệ thống manh mún:</b> Dùng nhiều phần mềm rời rạc, dữ liệu không đồng bộ.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg><b>"Rác" dữ liệu:</b> Khó ra quyết định chính xác vì thiếu dữ liệu sạch, tập trung.</li></ul></div></div></div></div>`
             },
             {
                 id: "giai-phap-1",
@@ -246,43 +286,6 @@
                 id: "tinh-nang",
                 menuTitle: "Tính năng",
                 html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">Hệ sinh thái Tính năng Toàn diện</h2><div class="grid-container-fill grid-2x2-fill"><div class="card animated delay-1"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:24px; height:24px; margin-right: 8px; vertical-align: -4px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>Bán hàng Đa kênh</h3><ul><li>Quản lý tập trung Fanpage, Social.</li><li>Xây dựng chiến dịch, combo, sản phẩm linh hoạt.</li><li>Kết nối đơn hàng tự động từ Sàn TMĐT, TikTok Shop.</li><li>Tích hợp API với các đơn vị giao hàng, website, landing page.</li></ul></div><div class="card animated delay-2"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:24px; height:24px; margin-right: 8px; vertical-align: -4px;"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0l-.07.042m15.622 0l-.07-.042m-15.482 0A46.498 46.498 0 0112 10.5c2.258 0 4.397-.47 6.208-1.308m-11.162 0A46.489 46.489 0 0112 10.5c2.258 0 4.397-.47 6.208-1.308" /></svg>Kho & Vận hành</h3><ul><li>Quản lý tồn kho đa kho, đa địa điểm chính xác.</li><li>Tự động hóa đóng gói, in vận đơn, cắt đơn hàng loạt.</li><li>Quản trị hàng hoàn và dòng tiền hoàn theo workflow.</li><li>Thiết lập chương trình khuyến mãi theo nhóm khách hàng.</li></ul></div><div class="card animated delay-1"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:24px; height:24px; margin-right: 8px; vertical-align: -4px;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414-.336.75-.75.75h-.75m0-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125-1.125h-14.25c-.621 0-1.125-.504-1.125-1.125v-9.75c0-.621.504-1.125 1.125-1.125h.375m15.75-1.5H2.625A1.125 1.125 0 001.5 4.875v14.25a1.125 1.125 0 001.125 1.125h16.5a1.125 1.125 0 001.125-1.125V4.875A1.125 1.125 0 0019.875 3.75z" /></svg>Tài chính Kế toán</h3><ul><li>Tự động xuất hóa đơn VAT theo đơn hàng.</li><li>Phân tích doanh thu, lợi nhuận đa chiều (theo kênh, SP).</li><li>Đối soát công nợ và dòng tiền COD/chuyển khoản tự động.</li><li>Quản lý quy trình mua hàng (Purchase Order) toàn diện.</li></ul></div><div class="card animated delay-2"><h3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:24px; height:24px; margin-right: 8px; vertical-align: -4px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>Khách hàng (CRM)</h3><ul><li>Lưu trữ và quản lý thông tin khách hàng từ mọi kênh.</li><li>Phân nhóm khách hàng để remarketing hiệu quả.</li><li>Tự động tích điểm, phân hạng thành viên (VIP, VVIP).</li><li>Thiết lập kịch bản chăm sóc khách hàng tự động.</li></ul></div></div></div></div>`
-            },
-            {
-                id: "chien-luoc-so-hoa",
-                menuTitle: "Chiến lược",
-                html: `<div class="slide-content"><div class="content-wrapper">
-                    <h2 class="animated">Lộ trình Chuyển đổi số cùng InnoFlex ERP</h2>
-                    <p class="animated delay-1" style="max-width: 90%; margin: 0 auto 1.5rem auto;">Chúng tôi đồng hành cùng doanh nghiệp qua từng giai đoạn, từ chuẩn hóa nền tảng đến tự động hóa thông minh để tăng trưởng bền vững.</p>
-                    <div class="grid-container-fill grid-3-fill">
-                        <div class="card animated delay-2">
-                            <h3>📌 Giai đoạn 1: Nền tảng (1-3 tháng)</h3>
-                            <p><strong>Mục tiêu:</strong> Chuẩn hóa quy trình, có số liệu kinh doanh chính xác.</p>
-                            <ul>
-                                <li>Kết nối đa kênh bán hàng (Sàn, Social, Web).</li>
-                                <li>Chuẩn hóa vận hành: Đóng đơn, tồn kho.</li>
-                                <li>Báo cáo lỗ/lãi real-time theo từng đơn hàng, từng kênh.</li>
-                            </ul>
-                        </div>
-                        <div class="card animated delay-2">
-                            <h3>🚀 Giai đoạn 2: Tối ưu (3-6 tháng)</h3>
-                            <p><strong>Mục tiêu:</strong> Tối ưu dòng tiền, quản lý tập trung và xây dựng dữ liệu khách hàng.</p>
-                            <ul>
-                                <li>Liên kết Kế toán – Tài chính, quản lý công nợ tự động.</li>
-                                <li>Quản lý tồn kho đa kho theo SKU, combo.</li>
-                                <li>Xây dựng cơ sở dữ liệu khách hàng (CRM) 360 độ.</li>
-                            </ul>
-                        </div>
-                        <div class="card animated delay-2">
-                            <h3>🏆 Giai đoạn 3: Tăng trưởng (6-12 tháng)</h3>
-                            <p><strong>Mục tiêu:</strong> Tự động hóa, tăng cường trải nghiệm khách hàng và ra quyết định bằng dữ liệu.</p>
-                            <ul>
-                                <li>Tự động hóa vận hành & điều phối đơn hàng thông minh.</li>
-                                <li>Tích hợp hệ thống Loyalty, Marketing Automation.</li>
-                                <li>Dashboard quản trị real-time cho ban lãnh đạo.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div></div>`
             },
             {
                 id: "dinh-vi-san-pham",
@@ -307,24 +310,27 @@
                         <div class="grid-container-fill grid-3-fill">
                             <div class="card animated delay-1">
                                 <h3>🚀 Vận hành hiệu quả</h3>
+                                <img src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Vận hành hiệu quả" class="illustration">
                                 <div style="position: relative; flex-grow: 1; min-height: 20vh;">
                                     <canvas id="opChart"></canvas>
                                 </div>
-                                <p style="font-size: clamp(0.7rem, 1vw, 0.9rem); line-height: 1.5; margin-top: 10px;">Giải phóng nguồn lực cho các hoạt động tăng trưởng bằng cách giảm <strong>50%</strong> thời gian xử lý đơn, loại bỏ <strong>70%</strong> sai sót tồn kho và tăng năng suất nhân sự gấp <strong>3 lần</strong>.</p>
+                                <p style="font-size: clamp(0.8rem, 1.1vw, 1rem); line-height: 1.6; margin-top: 10px;">Giảm <strong>50%</strong> thời gian xử lý đơn, loại bỏ <strong>70%</strong> sai sót tồn kho và tăng năng suất nhân sự gấp <strong>3 lần</strong>.</p>
                             </div>
                             <div class="card animated delay-2">
                                 <h3>💰 Tài chính minh bạch</h3>
+                                <img src="https://images.pexels.com/photos/7245344/pexels-photo-7245344.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tài chính minh bạch" class="illustration">
                                  <div style="position: relative; flex-grow: 1; min-height: 20vh;">
                                     <canvas id="financeChart"></canvas>
                                  </div>
-                                <p style="font-size: clamp(0.7rem, 1vw, 0.9rem); line-height: 1.5; margin-top: 10px;">Nắm bắt sức khỏe tài chính với khả năng tăng trưởng doanh thu <strong>+25%</strong>, giảm chi phí vận hành <strong>-30%</strong>, và cải thiện độ chính xác của báo cáo tài chính lên đến <strong>+35%</strong>.</p>
+                                <p style="font-size: clamp(0.8rem, 1.1vw, 1rem); line-height: 1.6; margin-top: 10px;">Tăng trưởng doanh thu <strong>+25%</strong>, giảm chi phí vận hành <strong>-30%</strong>, và cải thiện độ chính xác báo cáo <strong>+35%</strong>.</p>
                             </div>
                             <div class="card animated delay-1">
                                 <h3>❤️ Khách hàng trung thành</h3>
+                                <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Khách hàng trung thành" class="illustration">
                                  <div style="position: relative; flex-grow: 1; min-height: 20vh;">
                                     <canvas id="customerChart"></canvas>
                                  </div>
-                                <p style="font-size: clamp(0.7rem, 1vw, 0.9rem); line-height: 1.5; margin-top: 10px;">Hệ thống CRM tích hợp giúp xây dựng mối quan hệ bền chặt, tăng tỷ lệ khách hàng quay lại <strong>+20%</strong> và nâng cao điểm hài lòng (CSAT) của khách hàng thêm <strong>+30%</strong>.</p>
+                                <p style="font-size: clamp(0.8rem, 1.1vw, 1rem); line-height: 1.6; margin-top: 10px;">Tăng tỷ lệ khách hàng quay lại <strong>+20%</strong> và nâng cao điểm hài lòng (CSAT) của khách hàng thêm <strong>+30%</strong>.</p>
                             </div>
                         </div>
                     </div>

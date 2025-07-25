@@ -50,8 +50,13 @@
         body.view-presentation { overflow: hidden; }
         body.view-landing { overflow-y: auto; }
         
-        #landing-page-mode, #landing-page-menu { display: none; }
-        body.view-landing #landing-page-mode, body.view-landing #landing-page-menu { display: block; }
+        #landing-page-mode { display: none; }
+        #landing-page-menu { display: none; }
+
+        /* --- UPDATED: Corrected display property --- */
+        body.view-landing #landing-page-mode { display: block; }
+        body.view-landing #landing-page-menu { display: flex; }
+
         body.view-landing #presentation-mode { display: none; }
         body.view-landing .nav-btn, body.view-landing .progress-bar-container { display: none; }
 
@@ -87,8 +92,8 @@
         h2 { font-size: clamp(2.1rem, 3vw, 3rem); font-weight: 700; color: white; margin: 0 auto 1.8rem auto; border-bottom: 4px solid var(--accent-blue); display: inline-block; padding-bottom: 0.9rem; flex-shrink: 0; }
         h3 { font-size: clamp(1.3rem, 1.8vw, 1.6rem); font-weight: 700; color: var(--accent-blue); margin: 0 0 1.2rem 0; }
         
-        p { font-size: clamp(1.2rem, 1.68vw, 1.56rem); line-height: 1.7; color: var(--text-secondary); }
-        .card li { font-size: clamp(1.2rem, 1.44vw, 1.38rem); margin-bottom: 12px; line-height: 1.6; text-align: left;}
+        p { font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.7; color: var(--text-secondary); }
+        .card li { font-size: clamp(1rem, 1.2vw, 1.15rem); margin-bottom: 12px; line-height: 1.6; text-align: left;}
         .card li svg { width: 20px; height: 20px; margin-right: 12px; margin-top: 4px; color: var(--accent-blue); float: left;}
         
         .grid-container-fill { flex-grow: 1; display: grid; gap: 2%; width: 100%; }
@@ -97,7 +102,7 @@
         .grid-2x2-fill { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
         
         .card { background: rgba(30, 41, 59, 0.7); padding: 2.5%; border-radius: 12px; text-align: left; border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-        .card .illustration { width: 100%; height: 156px; border-radius: 8px; object-fit: cover; margin-bottom: 1.2rem; }
+        .card .illustration { width: 100%; height: 130px; border-radius: 8px; object-fit: cover; margin-bottom: 1.2rem; }
         .divider-line { width: 120px; border: none; height: 1px; background-color: rgba(255, 255, 255, 0.5); margin: 1.2rem auto; }
         
         .nav-btn { position: fixed; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.3); color: white; border: 1px solid var(--border-color); padding: 15px; cursor: pointer; z-index: 100; font-size: 24px; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; transition: background-color 0.3s ease; }
@@ -112,21 +117,26 @@
         #landing-page-mode #dinh-vi-san-pham .chart-container,
         #landing-page-mode #so-sanh-giai-phap .chart-container { min-height: 70vh; }
         
-        #landing-page-menu { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px var(--shadow-color); display: flex; align-items: center; padding: 0 20px; box-sizing: border-box; height: 50px; }
-        #landing-page-logo { display: none; height: 35px; width: auto; flex-shrink: 0; margin-right: 20px; }
-        body.view-landing #landing-page-logo { display: block; }
-        #landing-page-menu ul { margin: 0; padding: 0; list-style: none; display: flex; justify-content: flex-start; flex-wrap: wrap; flex-grow: 1; }
-        #landing-page-menu a { display: block; padding: 0 15px; line-height: 50px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s, background-color 0.3s; border-bottom: 3px solid transparent; }
+        #landing-page-menu {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            align-items: center; justify-content: space-between;
+            padding: 0 20px; box-sizing: border-box; height: 60px;
+        }
+        .menu-left-cluster { display: flex; align-items: center; }
+        #landing-page-logo { height: 35px; width: auto; flex-shrink: 0; margin-right: 20px; }
+        #landing-page-menu ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; }
+        #landing-page-menu a { display: block; padding: 0 15px; line-height: 60px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s, background-color 0.3s; border-bottom: 3px solid transparent; }
         #landing-page-menu a:hover { color: white; border-bottom-color: var(--accent-green); }
         #landing-page-menu a.active { color: white; border-bottom-color: var(--accent-blue); }
 
-        .top-controls { display: flex; gap: 10px; flex-shrink: 0; }
-        .control-btn { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--border-color); color: white; height: 35px; width: 45px; border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease-in-out; }
+        .top-controls { display: flex; gap: 10px; flex-shrink: 0; align-items: center; }
+        .control-btn { background: rgba(30, 41, 59, 0.7); border: 1px solid var(--border-color); color: white; height: 38px; width: 50px; border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease-in-out; }
         .control-btn:hover { border-color: var(--accent-blue); }
-        .control-btn:disabled { opacity: 0.5; cursor: not-allowed; }
         .control-btn svg { width: 22px; height: 22px; }
 
-        #mobile-menu-toggle { display: none; background: transparent; border: none; padding: 10px; cursor: pointer; margin-left: 10px; }
+        #mobile-menu-toggle { display: none; background: transparent; border: none; padding: 10px; cursor: pointer; }
         #mobile-menu-toggle svg { width: 24px; height: 24px; color: white; }
 
         .logo-grid-15 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; width: 100%; flex-grow: 1; perspective: 1000px; align-items: center;}
@@ -151,11 +161,15 @@
         #khach-hang .text-content { overflow-y: auto; max-height: 100%; padding-right: 15px; }
 
         @media (max-width: 1200px) {
-             #landing-page-menu { justify-content: space-between; height: 60px;}
-             #landing-page-menu ul { display: none; }
-             #mobile-menu-toggle { display: block; }
-             #landing-page-menu.menu-open ul { position: absolute; top: 100%; left: 0; width: 100%; background: var(--card-bg); flex-direction: column; padding: 0; display:flex;}
-             #landing-page-menu.menu-open a { line-height: 45px; }
+             #landing-page-menu { justify-content: space-between; }
+             .menu-left-cluster ul { display: none; }
+             #mobile-menu-toggle { display: flex; }
+             #landing-page-menu.menu-open .menu-left-cluster {
+                position: absolute; top: 60px; left: 0; width: 100%;
+                background: var(--card-bg); flex-direction: column; align-items: flex-start;
+             }
+             #landing-page-menu.menu-open ul { display: flex; flex-direction: column; width: 100%; }
+             #landing-page-menu.menu-open a { line-height: 50px; width: 100%; padding-left: 20px; }
         }
 
         @media (max-width: 768px) {
@@ -179,10 +193,15 @@
             -webkit-backdrop-filter: none;
         }
 
-        body.view-presentation #landing-page-menu ul,
-        body.view-presentation #landing-page-logo,
+        body.view-presentation .menu-left-cluster,
         body.view-presentation #mobile-menu-toggle {
             display: none !important;
+        }
+        
+        body.view-presentation .top-controls {
+            position: fixed;
+            top: 15px;
+            right: 20px;
         }
 
 </style>
@@ -192,15 +211,18 @@
     <div id="presentation-mode"></div>
     
     <nav id="landing-page-menu">
-        <img src="https://gpems.net/logo-icon.png" alt="InnoFlex ERP Logo" id="landing-page-logo">
-        <ul></ul>
+        <div class="menu-left-cluster">
+            <img src="https://gpems.net/logo-icon.png" alt="InnoFlex ERP Logo" id="landing-page-logo">
+            <ul></ul>
+        </div>
         <div class="top-controls">
             <button id="view-switch" class="control-btn" title="Chuyển chế độ hiển thị"></button>
+            <button id="mobile-menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+            </button>
         </div>
-        <button id="mobile-menu-toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
-        </button>
     </nav>
+
     <div id="landing-page-mode"></div>
 
     <script>
@@ -379,8 +401,8 @@
                             options: { responsive: true, maintainAspectRatio: false,
                                 plugins: { legend: { display: false }, datalabels: { color: 'white', align: 'center', font: { weight: 'bold', size: 12 }, formatter: (v, c) => c.dataset.label }},
                                 scales: {
-                                    y: { title: { display: true, text: 'Chuyên môn hóa Bán lẻ', color: 'white' }, min: 0, max: 100 },
-                                    x: { title: { display: true, text: 'Phân tán <───> Tập trung', color: 'white' }, min: 0, max: 100 }
+                                    y: { title: { display: true, text: 'Chuyên môn hóa Bán lẻ', color: 'white' }, min: 0, max: 100, grid: { color: 'rgba(255, 255, 255, 0.1)' }, ticks: { color: 'var(--text-secondary)'} },
+                                    x: { title: { display: true, text: 'Phân tán <───> Tập trung', color: 'white' }, min: 0, max: 100, grid: { color: 'rgba(255, 255, 255, 0.1)' }, ticks: { color: 'var(--text-secondary)'} }
                                 }
                             }
                         });
@@ -429,18 +451,26 @@
                             options: {
                                 responsive: true, maintainAspectRatio: false,
                                 plugins: { 
-                                    legend: { position: 'top', labels: { color: 'var(--text-secondary)', font: { size: 14, family: "'Be Vietnam Pro', sans-serif" } } }, 
                                     tooltip: { titleFont: { family: "'Be Vietnam Pro', sans-serif" }, bodyFont: { family: "'Be Vietnam Pro', sans-serif" }, boxPadding: 6 },
-                                    datalabels: { // --- UPDATED: Added data labels for radar chart
-                                        display: true,
-                                        color: '#FFFFFF',
-                                        backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                                        borderRadius: 4,
-                                        padding: 4,
-                                        font: {
-                                            weight: 'bold',
-                                            size: 11,
-                                            family: "'Be Vietnam Pro', sans-serif"
+                                    datalabels: {
+                                        display: true, color: '#FFFFFF', backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                                        borderRadius: 4, padding: 4, font: { weight: 'bold', size: 11, family: "'Be Vietnam Pro', sans-serif" }
+                                    },
+                                    legend: {
+                                        position: 'top',
+                                        labels: {
+                                            color: 'var(--text-secondary)',
+                                            font: { size: 14, family: "'Be Vietnam Pro', sans-serif" },
+                                            generateLabels: function(chart) {
+                                                const defaultLabels = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+                                                defaultLabels.forEach(label => {
+                                                    const dataset = chart.data.datasets[label.datasetIndex];
+                                                    const total = dataset.data.reduce((acc, value) => acc + value, 0);
+                                                    const avg = total / dataset.data.length;
+                                                    label.text = `${dataset.label} (TB: ${avg.toFixed(1)})`;
+                                                });
+                                                return defaultLabels;
+                                            }
                                         }
                                     }
                                 },
@@ -475,16 +505,19 @@
             prevBtn.addEventListener('click', prevSlide);
             
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && document.body.classList.contains('view-presentation')) {
-                    setViewMode(false);
-                } else if (document.body.classList.contains('view-presentation')) {
-                    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); } 
-                    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+                if (document.body.classList.contains('view-presentation')) {
+                    if (e.key === 'Escape') {
+                        setViewMode(false);
+                    } else if (e.key === 'ArrowRight' || e.key === ' ') { 
+                        e.preventDefault(); nextSlide(); 
+                    } else if (e.key === 'ArrowLeft') { 
+                        e.preventDefault(); prevSlide(); 
+                    }
                 }
             });
             
-            const switchToPresentationIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h14V5H5zm6 3a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0v-4a1 1 0 0 1 1-1z"/></svg>`;
-            const switchToLandingIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM7 5v14h10V5H7z" /></svg>`;
+            const switchToPresentationIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.0083 3H2.9917C2.44385 3 2 3.44385 2 3.9917V20.0083C2 20.5562 2.44385 21 2.9917 21H21.0083C21.5562 21 22 20.5562 22 20.0083V3.9917C22 3.44385 21.5562 3 21.0083 3ZM20 19H4V5H20V19Z M 12 10 L 15 13 L 12 16 V 10 Z"/></svg>`;
+            const switchToLandingIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2ZM6 4V20H18V4H6Z"/></svg>`;
 
             function setViewMode(isPresentation, shouldScroll = true) {
                  document.body.classList.toggle('view-presentation', isPresentation);
@@ -494,7 +527,8 @@
                  if (!isPresentation) {
                      exitFullscreen();
                      if(shouldScroll) {
-                        document.querySelector(`#${slideData[currentSlide].id}`).scrollIntoView({ behavior: 'smooth' });
+                        const targetSection = document.querySelector(`#${slideData[currentSlide].id}`);
+                        if(targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
                      }
                  }
             }
@@ -508,9 +542,11 @@
                 if (isPresentation) tryFullscreen();
             });
             
-            mobileMenuToggle.addEventListener('click', () => { menu.classList.toggle('menu-open'); });
+            mobileMenuToggle.addEventListener('click', (e) => { 
+                e.stopPropagation();
+                menu.classList.toggle('menu-open'); 
+            });
             menuLinks.forEach(link => { link.addEventListener('click', (e) => { 
-                e.preventDefault();
                 menu.classList.remove('menu-open');
                 const targetId = link.getAttribute('href');
                 document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
@@ -528,9 +564,11 @@
                         const id = entry.target.id;
                         menuLinks.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === `#${id}`); });
                         const newIndex = slideData.findIndex(d => d.id === id);
-                        if (currentSlide !== newIndex && newIndex !== -1) {
+                        if (newIndex !== -1 && currentSlide !== newIndex) {
                             currentSlide = newIndex;
-                            updateSlide(currentSlide);
+                            if (document.body.classList.contains('view-presentation')) {
+                                updateSlide(currentSlide);
+                            }
                         }
                     }
                 });
@@ -546,7 +584,7 @@
                         }
                     }
                 });
-            }, { threshold: 0.2 });
+            }, { threshold: 0.1 });
 
             sections.forEach(section => {
                 menuObserver.observe(section);

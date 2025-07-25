@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -86,7 +87,6 @@
         h2 { font-size: clamp(2.1rem, 3vw, 3rem); font-weight: 700; color: white; margin: 0 auto 1.8rem auto; border-bottom: 4px solid var(--accent-blue); display: inline-block; padding-bottom: 0.9rem; flex-shrink: 0; }
         h3 { font-size: clamp(1.3rem, 1.8vw, 1.6rem); font-weight: 700; color: var(--accent-blue); margin: 0 0 1.2rem 0; }
         
-        /* --- UPDATED: Increased font size by 20% --- */
         p { font-size: clamp(1.2rem, 1.68vw, 1.56rem); line-height: 1.7; color: var(--text-secondary); }
         .card li { font-size: clamp(1.2rem, 1.44vw, 1.38rem); margin-bottom: 12px; line-height: 1.6; text-align: left;}
         .card li svg { width: 20px; height: 20px; margin-right: 12px; margin-top: 4px; color: var(--accent-blue); float: left;}
@@ -97,7 +97,6 @@
         .grid-2x2-fill { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
         
         .card { background: rgba(30, 41, 59, 0.7); padding: 2.5%; border-radius: 12px; text-align: left; border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-        /* --- UPDATED: Increased image height by 30% --- */
         .card .illustration { width: 100%; height: 156px; border-radius: 8px; object-fit: cover; margin-bottom: 1.2rem; }
         .divider-line { width: 120px; border: none; height: 1px; background-color: rgba(255, 255, 255, 0.5); margin: 1.2rem auto; }
         
@@ -113,19 +112,19 @@
         #landing-page-mode #dinh-vi-san-pham .chart-container,
         #landing-page-mode #so-sanh-giai-phap .chart-container { min-height: 70vh; }
         
-        #landing-page-menu { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px var(--shadow-color); display: flex; align-items: center; padding: 0 20px; box-sizing: border-box; height: 30px; }
-        #landing-page-logo { display: none; height: 25px; width: auto; flex-shrink: 0; }
+        #landing-page-menu { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px var(--shadow-color); display: flex; align-items: center; padding: 0 20px; box-sizing: border-box; height: 50px; }
+        #landing-page-logo { display: none; height: 35px; width: auto; flex-shrink: 0; margin-right: 20px; }
         body.view-landing #landing-page-logo { display: block; }
-        #landing-page-menu ul { margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; flex-wrap: wrap; flex-grow: 1; }
-        #landing-page-menu a { display: block; padding: 0 20px; line-height: 30px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s, background-color 0.3s; border-bottom: 3px solid transparent; }
+        #landing-page-menu ul { margin: 0; padding: 0; list-style: none; display: flex; justify-content: flex-start; flex-wrap: wrap; flex-grow: 1; }
+        #landing-page-menu a { display: block; padding: 0 15px; line-height: 50px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s, background-color 0.3s; border-bottom: 3px solid transparent; }
         #landing-page-menu a:hover { color: white; border-bottom-color: var(--accent-green); }
         #landing-page-menu a.active { color: white; border-bottom-color: var(--accent-blue); }
 
         .top-controls { display: flex; gap: 10px; flex-shrink: 0; }
-        .control-btn { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--border-color); color: white; height: 30px; width: 40px; border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease-in-out; }
+        .control-btn { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--border-color); color: white; height: 35px; width: 45px; border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease-in-out; }
         .control-btn:hover { border-color: var(--accent-blue); }
         .control-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .control-btn svg { width: 20px; height: 20px; }
+        .control-btn svg { width: 22px; height: 22px; }
 
         #mobile-menu-toggle { display: none; background: transparent; border: none; padding: 10px; cursor: pointer; margin-left: 10px; }
         #mobile-menu-toggle svg { width: 24px; height: 24px; color: white; }
@@ -152,10 +151,11 @@
         #khach-hang .text-content { overflow-y: auto; max-height: 100%; padding-right: 15px; }
 
         @media (max-width: 1200px) {
-             #landing-page-menu { justify-content: space-between; }
+             #landing-page-menu { justify-content: space-between; height: 60px;}
              #landing-page-menu ul { display: none; }
              #mobile-menu-toggle { display: block; }
-             #landing-page-menu.menu-open ul { position: absolute; top: 100%; left: 0; width: 100%; background: var(--card-bg); flex-direction: column; padding: 0;}
+             #landing-page-menu.menu-open ul { position: absolute; top: 100%; left: 0; width: 100%; background: var(--card-bg); flex-direction: column; padding: 0; display:flex;}
+             #landing-page-menu.menu-open a { line-height: 45px; }
         }
 
         @media (max-width: 768px) {
@@ -172,6 +172,7 @@
         html:fullscreen, body:fullscreen { width: 100%; height: 100%; overflow: hidden; }
 
         body.view-presentation #landing-page-menu {
+            display: flex;
             background: transparent;
             box-shadow: none;
             backdrop-filter: none;
@@ -182,17 +183,6 @@
         body.view-presentation #landing-page-logo,
         body.view-presentation #mobile-menu-toggle {
             display: none !important;
-        }
-
-        body.view-presentation .top-controls {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            z-index: 1001;
-        }
-
-        body.view-presentation #view-switch {
-            display: flex !important;
         }
 
 </style>
@@ -278,12 +268,11 @@
                         </div>
                     </div>
                 </div>` },
-            // --- UPDATED: Replaced Circle K logo with Happy Skin ---
             { id: "doi-tac", menuTitle: "Đối tác", html: `<div class="slide-content"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;"><h2 class="animated">Hệ sinh thái Đối tác & Khách hàng</h2><p class="animated delay-1">Chúng tôi tự hào được tin dùng bởi các thương hiệu hàng đầu trong ngành Bán lẻ, F&B và Logistics.</p><div class="logo-grid-15 animated delay-2">
                     <div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/thegioididong.com" alt="Thế Giới Di Động"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/fptshop.com.vn" alt="FPT Shop"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/cellphones.com.vn" alt="CellphoneS"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/winmart.vn" alt="WinMart"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/pharmacity.vn" alt="Pharmacity"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://logo.clearbit.com/tiki.vn" alt="Tiki"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/shopee.vn" alt="Shopee"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/lazada.vn" alt="Lazada"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/sendo.vn" alt="Sendo"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/thecoffeehouse.com" alt="The Coffee House"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/highlandscoffee.com.vn" alt="Highlands Coffee"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://media.licdn.com/dms/image/v2/C561BAQGl_5bNPhZm-A/company-background_10000/company-background_10000/0/1616738980932/happy_skin_vietnam_cover?e=2147483647&v=beta&t=qUMHM1RHWlvt68pDqPYD8GkK6471TIfs4xtw8Kd6j9I" alt="Happy Skin"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/viettelpost.com.vn" alt="Viettel Post"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/ghn.vn" alt="GHN"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/grab.com" alt="Grab"></div>
                 </div></div></div>` },
             { id: "khach-hang", menuTitle: "Khách hàng", html: `<div class="slide-content"><div class="content-wrapper"><div class="split-layout"><div class="image-content animated"><img src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phản hồi khách hàng"></div><div class="text-content animated delay-1"><h2>Khách hàng nói gì?</h2><div class="card" style="margin-bottom: 20px;"><h3>⭐ Minh bạch & Hiệu quả</h3><p>"InnoFlex ERP đã thực sự thay đổi cách chúng tôi quản lý tồn kho và đơn hàng. Mọi thứ trở nên minh bạch và hiệu quả hơn rất nhiều. Hệ thống giúp chúng tôi theo dõi mọi sản phẩm từ khi nhập kho đến khi giao, đảm bảo độ chính xác cao."</p><footer style="text-align:right; margin-top:1rem; font-style:italic;"><b>- Trần Văn Minh</b><br><span style="font-size:0.9em;">Trưởng phòng Vận hành, The ABC Group</span></footer></div><div class="card"><h3>🤝 Đối tác đồng hành</h3><p>"Không chỉ là một phần mềm, mà là một đối tác thực sự. Các tính năng phân tích cung cấp thông tin chi tiết quý giá để ra quyết định kinh doanh sáng suốt. Sự hỗ trợ của đội ngũ InnoFlex cũng rất tuyệt vời."</p><footer style="text-align:right; margin-top:1rem; font-style:italic;"><b>- Lê Thị Bích Hằng</b><br><span style="font-size:0.9em;">Giám đốc Tài chính, XYZ Retail</span></footer></div></div></div></div></div>` },
-           { id: "doi-ngu", menuTitle: "Đội ngũ", html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">Đội ngũ chuyên gia - Sự an tâm của bạn</h2><div class="grid-container-fill grid-3-fill"><div class="card animated delay-1" style="text-align:center;"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Founder" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Tấn Hiền</h3><p><b>Founder & CEO</b><br>Người thủ lĩnh với tầm nhìn đột phá, anh Hiền định hình chiến lược và dẫn dắt InnoFlex ERP trở thành nền tảng chuyển đổi số hàng đầu cho doanh nghiệp Việt.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=400" alt="COO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Mạnh Tân</h3><p><b>Co-Founder & COO</b><br>Chuyên gia vận hành xuất sắc, anh Tân thiết kế và tối ưu hóa quy trình hoạt động, đảm bảo mọi dự án được triển khai nhịp nhàng và hiệu quả.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=400" alt="CTO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Văn Hòa</h3><p><b>Co-Founder & CTO</b><br>Kiến trúc sư công nghệ của hệ thống, anh Hòa dẫn đầu giải pháp kỹ thuật, đảm bảo nền tảng InnoFlex ERP luôn ổn định, bảo mật và sẵn sàng mở rộng.</p></div></div></div></div>` }
+            { id: "doi-ngu", menuTitle: "Đội ngũ", html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">Đội ngũ chuyên gia - Sự an tâm của bạn</h2><div class="grid-container-fill grid-3-fill"><div class="card animated delay-1" style="text-align:center;"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Founder" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Tấn Hiền</h3><p><b>Founder & CEO</b><br>Với tầm nhìn chiến lược, anh Hiền dẫn dắt InnoFlex ERP hướng tới những giải pháp đột phá.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=400" alt="COO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Mạnh Tân</h3><p><b>Co-Founder & COO</b><br>Anh Tân chịu trách nhiệm vận hành, đảm bảo mọi quy trình diễn ra suôn sẻ và hiệu quả.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=400" alt="CTO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Văn Hòa</h3><p><b>Co-Founder & CTO</b><br>Anh Hòa là kiến trúc sư công nghệ, đảm bảo hệ thống vững chắc.</p></div></div></div></div>` },
             { id: "lien-he", menuTitle: "Liên hệ", html: `<div class="slide-content" style="background-image: url('https://fia.com.br/wp-content/uploads/2023/04/mapeamento-capa-02-1280x720.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.7);"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;">
                <img src="https://gpems.net/logo-icon.png" 
                      alt="InnoFlex ERP Logo" 
@@ -439,8 +428,23 @@
                             },
                             options: {
                                 responsive: true, maintainAspectRatio: false,
-                                plugins: { legend: { position: 'top', labels: { color: 'var(--text-secondary)', font: { size: 14, family: "'Be Vietnam Pro', sans-serif" } } }, tooltip: { titleFont: { family: "'Be Vietnam Pro', sans-serif" }, bodyFont: { family: "'Be Vietnam Pro', sans-serif" }, boxPadding: 6 } },
-                                scales: { r: { angleLines: { color: 'rgba(255, 255, 255, 0.15)' }, grid: { color: 'rgba(255, 255, 255, 0.15)' }, pointLabels: { color: 'var(--text-primary)', font: { size: 13, family: "'Be Vietnam Pro', sans-serif" }, }, ticks: { color: 'var(--text-secondary)', backdropColor: 'transparent', stepSize: 2 }, min: 0, max: 10 } }
+                                plugins: { 
+                                    legend: { position: 'top', labels: { color: 'var(--text-secondary)', font: { size: 14, family: "'Be Vietnam Pro', sans-serif" } } }, 
+                                    tooltip: { titleFont: { family: "'Be Vietnam Pro', sans-serif" }, bodyFont: { family: "'Be Vietnam Pro', sans-serif" }, boxPadding: 6 },
+                                    datalabels: { // --- UPDATED: Added data labels for radar chart
+                                        display: true,
+                                        color: '#FFFFFF',
+                                        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                                        borderRadius: 4,
+                                        padding: 4,
+                                        font: {
+                                            weight: 'bold',
+                                            size: 11,
+                                            family: "'Be Vietnam Pro', sans-serif"
+                                        }
+                                    }
+                                },
+                                scales: { r: { angleLines: { color: 'rgba(255, 255, 255, 0.15)' }, grid: { color: 'rgba(255, 255, 255, 0.15)' }, pointLabels: { color: 'var(--text-primary)', font: { size: 13, family: "'Be Vietnam Pro', sans-serif" }, }, ticks: { display: false, stepSize: 2 }, min: 0, max: 10 } }
                             }
                         });
                     }
@@ -479,8 +483,8 @@
                 }
             });
             
-            const switchToPresentationIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 4H3C1.89543 4 1 4.89543 1 6V18C1 19.1046 1.89543 20 3 20H21C22.1046 20 23 19.1046 23 18V6C23 4.89543 22.1046 4 21 4ZM21 6V18H3V6H21Z"></path></svg>`;
-            const switchToLandingIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3ZM7 5V19H17V5H7Z"></path></svg>`;
+            const switchToPresentationIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h14V5H5zm6 3a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0v-4a1 1 0 0 1 1-1z"/></svg>`;
+            const switchToLandingIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM7 5v14h10V5H7z" /></svg>`;
 
             function setViewMode(isPresentation, shouldScroll = true) {
                  document.body.classList.toggle('view-presentation', isPresentation);

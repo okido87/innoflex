@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -20,6 +21,11 @@
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes backgroundPan { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes autoFlip {
+            0% { transform: rotateY(0deg); }
+            50% { transform: rotateY(360deg); }
+            100% { transform: rotateY(360deg); }
+        }
 
         html { scroll-behavior: smooth; }
         body { font-family: 'Be Vietnam Pro', sans-serif; margin: 0; color: var(--text-primary); background-color: var(--primary-bg); }
@@ -59,8 +65,8 @@
         .image-content { flex: 0.8; min-width: 0; border-radius: 18px; overflow: hidden; }
         .image-content img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* --- FONT SIZE INCREASE --- */
-        h1 { font-size: clamp(2.8rem, 4.5vw, 4.8rem); font-weight: 900; color: white; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); position: relative; z-index: 1;}
+        /* --- FONT SIZE & TITLE PADDING --- */
+        h1 { font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 900; color: white; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); position: relative; z-index: 1; padding: 0 7vw; box-sizing: border-box; }
         h2 { font-size: clamp(2.2rem, 2.8vw, 3.2rem); font-weight: 700; color: white; margin: 0 0 2.5rem 0; border-bottom: 5px solid var(--accent-blue); display: inline-block; padding-bottom: 1rem; }
         h3 { font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1.2rem; }
         p { font-size: clamp(1rem, 1.3vw, 1.3rem); line-height: 1.8; color: var(--text-secondary); position: relative; z-index: 1;}
@@ -95,9 +101,13 @@
         #mobile-menu-toggle { display: none; background: transparent; border: none; padding: 10px; cursor: pointer; }
         #mobile-menu-toggle svg { width: 30px; height: 30px; color: white; }
 
-        .logo-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; width: 100%; margin-top: 2.5rem; }
-        .logo { background-color: rgba(255,255,255,0.05); border: 1px solid var(--border-color); height: 80px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-weight: bold; color: var(--text-secondary); font-size: 1rem; padding: 5px; text-align: center; transition: all 0.3s ease; }
-        .logo:hover { border-color: var(--accent-blue); color: white; transform: scale(1.05); }
+        /* --- LOGO GRID & ANIMATION --- */
+        .logo-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; width: 100%; margin-top: 2.5rem; perspective: 1000px; }
+        .logo { background-color: rgba(255,255,255,0.05); border: 1px solid var(--border-color); height: 80px; border-radius: 10px; display: flex; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box; transform-style: preserve-3d; animation: autoFlip 10s infinite ease-in-out; }
+        .logo:hover { transform: scale(1.1) rotateY(0) !important; border-color: var(--accent-blue); animation-play-state: paused; }
+        .logo img { max-width: 100%; max-height: 50px; object-fit: contain; }
+        
+        .delay-logo-1 { animation-delay: 0.0s; } .delay-logo-2 { animation-delay: 0.4s; } .delay-logo-3 { animation-delay: 0.8s; } .delay-logo-4 { animation-delay: 1.2s; } .delay-logo-5 { animation-delay: 1.6s; } .delay-logo-6 { animation-delay: 2.0s; } .delay-logo-7 { animation-delay: 2.4s; } .delay-logo-8 { animation-delay: 2.8s; } .delay-logo-9 { animation-delay: 3.2s; } .delay-logo-10 { animation-delay: 3.6s; }
 
         .slide-logo { position: absolute; top: 3vw; left: 3vw; width: clamp(50px, 4vw, 70px); opacity: 0.8; z-index: 0; }
 
@@ -113,8 +123,8 @@
             .split-layout { flex-direction: column; }
             .image-content { max-height: 25vh; }
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-            .logo-grid-5 { grid-template-columns: repeat(3, 1fr); }
-            h1 { font-size: 2.2rem; }
+            .logo-grid-5 { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+            h1 { font-size: 2.8rem; }
             h2 { font-size: 1.8rem; }
             p { font-size: 1rem; }
             .nav-btn { bottom: 20px; top: auto; transform: none; }
@@ -149,7 +159,16 @@
             {
                 id: "gioi-thieu",
                 menuTitle: "Giới thiệu",
-                html: `<div class="slide-content" style="background-image: url('https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.7);"><img src="https://gpems.net/logo-icon.png" alt="InnoFlex ERP Logo" class="slide-logo animated"><h1 class="animated delay-1">InnoFlex ERP: Giải pháp Vận Hành Bán Lẻ Đa Kênh Toàn diện</h1><p class="animated delay-2" style="font-size: 2.2rem; color: var(--text-primary);">Biến thách thức thành cơ hội, nâng tầm hiệu quả kinh doanh của bạn.</p></div>`
+                html: `<div class="slide-content" style="background-image: url('https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.7);">
+                         <img src="https://gpems.net/logo-icon.png" alt="InnoFlex ERP Logo" class="slide-logo animated">
+                         <h1 class="animated delay-1" style="margin-bottom: 0.5rem; font-size: clamp(3rem, 5.5vw, 6rem);">InnoFlex ERP</h1>
+                         <p class="animated delay-2" style="font-size: clamp(1.5rem, 2vw, 2rem); color: var(--text-primary); margin-top: 0; margin-bottom: 2rem; font-weight: 400;">
+                           Giải pháp Vận Hành Bán Lẻ Đa Kênh Toàn diện
+                         </p>
+                         <p class="animated delay-2" style="font-size: 1.2rem; color: var(--accent-green); font-weight: 500; letter-spacing: 1px;">
+                           Sản phẩm của CÔNG TY TNHH GIẢI PHÁP SỐ EMS
+                         </p>
+                       </div>`
             },
             {
                 id: "thach-thuc",
@@ -159,7 +178,7 @@
             {
                 id: "giai-phap-1",
                 menuTitle: "Giải pháp 1/2",
-                html: `<div class="slide-content"><div class="content-wrapper"><div class="split-layout"><div class="text-content animated"><h2>InnoFlex ERP: Giải pháp Omni Channel Toàn diện</h2><p>Chúng tôi không chỉ vá lỗi, chúng tôi kiến tạo một hệ thống vận hành thông minh, kết nối mọi điểm chạm trong hành trình kinh doanh của bạn trên một nền tảng duy nhất.</p><div class="card" style="flex-grow: 1; justify-content: center;"><h3>🎯 Phương pháp tiếp cận của InnoFlex ERP:</h3><ul><li><b>Tự động hóa & Thông minh:</b> Tự động map và điều phối data, xử lý các nghiệp vụ phức tạp như combo, hoàn hàng, khiếu nại.</li><li><b>Minh bạch & Real-time:</b> Báo cáo doanh thu, lãi lỗ theo kênh theo thời gian thực, quản lý dòng tiền và công nợ chặt chẽ.</li><li><b>Kết nối & Toàn diện:</b> Cấu trúc kế toán - quản trị liên kết, xử lý tạm ứng, tích hợp quy trình mua hàng từ A-Z.</li></ul></div></div><div class="image-content animated delay-1"><img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Giải pháp đột phá"></div></div></div></div>`
+                html: `<div class="slide-content"><div class="content-wrapper"><div class="split-layout"><div class="text-content animated"><h2>InnoFlex ERP: Giải pháp Omni Channel Toàn diện</h2><p>Chúng tôi không chỉ vá lỗi, chúng tôi kiến tạo một hệ thống vận hành thông minh, kết nối mọi điểm chạm trong hành trình kinh doanh của bạn trên một nền tảng duy nhất.</p><div class="card" style="flex-grow: 1; justify-content: center;"><h3>🎯 Phương pháp tiếp cận của InnoFlex ERP:</h3><ul><li><b>Tự động hóa & Thông minh:</b> Tự động map và điều phối data, xử lý các nghiệp vụ phức tạp như combo, hoàn hàng, khiếu nại.</li><li><b>Minh bạch & Real-time:</b> Báo cáo doanh thu, lãi lỗ theo kênh theo thời gian thực, quản lý dòng tiền và công nợ chặt chẽ.</li><li><b>Kết nối & Toàn diện:</b> Cấu trúc kế toán - quản trị liên kết, xử lý tạm ứng, tích hợp quy trình mua hàng từ A-Z.</li></ul></div></div><div class="image-content animated delay-1"><img src="https://images.pexels.com/photos/8297478/pexels-photo-8297478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Giải pháp đột phá"></div></div></div></div>`
             },
              {
                 id: "giai-phap-2",
@@ -174,12 +193,12 @@
             {
                 id: "gia-tri",
                 menuTitle: "Giá trị",
-                html: `<div class="slide-content" style="background-image: url('https://cdn.pixabay.com/photo/2021/11/13/20/48/data-6792631_1280.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.8);"><h2 class="animated">Giá trị InnoFlex ERP mang lại - Con số biết nói</h2><p class="animated delay-1">Dữ liệu từ các khách hàng của chúng tôi sau khi triển khai InnoFlex ERP</p><div class="grid-3"><div class="card animated delay-1"><h3>🚀 Vận hành hiệu quả</h3><p>Giảm thời gian xử lý đơn hàng <strong>-50%</strong><br>Giảm sai sót tồn kho <strong>-70%</strong><br>Tăng năng suất nhân sự <strong>x3</strong></p></div><div class="card animated delay-2"><h3>💰 Tài chính minh bạch</h3><p>Tăng trưởng doanh thu <strong>+25%</strong><br>Giảm chi phí vận hành <strong>-30%</strong><br>Cải thiện độ chính xác báo cáo <strong>+35%</strong></p></div><div class="card animated delay-1"><h3>❤️ Khách hàng trung thành</h3><p>Tăng tỷ lệ khách hàng quay lại <strong>+20%</strong><br>Tăng điểm hài lòng (CSAT) <strong>+30%</strong></p></div></div></div>`
+                html: `<div class="slide-content" style="background-image: url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.8);"><h2 class="animated">Giá trị InnoFlex ERP mang lại - Con số biết nói</h2><p class="animated delay-1">Dữ liệu từ các khách hàng của chúng tôi sau khi triển khai InnoFlex ERP</p><div class="grid-3"><div class="card animated delay-1"><h3>🚀 Vận hành hiệu quả</h3><p>Giảm thời gian xử lý đơn hàng <strong>-50%</strong><br>Giảm sai sót tồn kho <strong>-70%</strong><br>Tăng năng suất nhân sự <strong>x3</strong></p></div><div class="card animated delay-2"><h3>💰 Tài chính minh bạch</h3><p>Tăng trưởng doanh thu <strong>+25%</strong><br>Giảm chi phí vận hành <strong>-30%</strong><br>Cải thiện độ chính xác báo cáo <strong>+35%</strong></p></div><div class="card animated delay-1"><h3>❤️ Khách hàng trung thành</h3><p>Tăng tỷ lệ khách hàng quay lại <strong>+20%</strong><br>Tăng điểm hài lòng (CSAT) <strong>+30%</strong></p></div></div></div>`
             },
             {
                 id: "doi-tac",
                 menuTitle: "Đối tác",
-                html: `<div class="slide-content"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;"><h2 class="animated">Được tin dùng bởi những thương hiệu hàng đầu</h2><p class="animated delay-1">Sự thành công của khách hàng là minh chứng rõ ràng nhất cho giá trị và sự ổn định mà InnoFlex ERP mang lại.</p><div class="logo-grid-5 animated delay-2"><div class="logo">Thế Giới Di Động</div><div class="logo">Viettel</div><div class="logo">FPT Shop</div><div class="logo">Vinamilk</div><div class="logo">Vietcombank</div><div class="logo">Highlands Coffee</div><div class="logo">Phúc Long</div><div class="logo">Techcombank</div><div class="logo">PNJ</div><div class="logo">Tiki</div><div class="logo">WinMart</div><div class="logo">Canifa</div><div class="logo">IVY moda</div><div class="logo">Grab</div><div class="logo">Shopee</div></div></div></div>`
+                html: `<div class="slide-content"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;"><h2 class="animated">Được tin dùng bởi những thương hiệu hàng đầu</h2><p class="animated delay-1">Sự thành công của khách hàng là minh chứng rõ ràng nhất cho giá trị và sự ổn định mà InnoFlex ERP mang lại.</p><div class="logo-grid-5 animated delay-2"><div class="logo delay-logo-1"><img src="https://logo.clearbit.com/thegioididong.com" alt="Thế Giới Di Động Logo"></div><div class="logo delay-logo-2"><img src="https://logo.clearbit.com/fpt.com.vn" alt="FPT Shop Logo"></div><div class="logo delay-logo-3"><img src="https://logo.clearbit.com/cellphones.com.vn" alt="CellphoneS Logo"></div><div class="logo delay-logo-4"><img src="https://logo.clearbit.com/tiki.vn" alt="Tiki Logo"></div><div class="logo delay-logo-5"><img src="https://logo.clearbit.com/shopee.vn" alt="Shopee Logo"></div><div class="logo delay-logo-6"><img src="https://logo.clearbit.com/lazada.vn" alt="Lazada Logo"></div><div class="logo delay-logo-7"><img src="https://logo.clearbit.com/sendo.vn" alt="Sendo Logo"></div><div class="logo delay-logo-8"><img src="https://logo.clearbit.com/grab.com" alt="Grab Logo"></div><div class="logo delay-logo-9"><img src="https://logo.clearbit.com/viettelpost.com.vn" alt="Viettel Post Logo"></div><div class="logo delay-logo-10"><img src="https://logo.clearbit.com/ghn.vn" alt="GHN Logo"></div></div></div></div>`
             },
             {
                 id: "khach-hang",

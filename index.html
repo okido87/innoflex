@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -131,11 +130,10 @@
             padding: 10px 20px; box-sizing: border-box; height: 60px;
         }
         #landing-page-logo { height: 35px; width: auto; flex-shrink: 0; }
-        /* --- UPDATED: Fix menu wrapping issue with margin auto --- */
         #landing-page-menu ul {
-            margin: 0 auto; /* This centers the ul block between other flex items */
+            margin: 0 auto;
             padding: 0; list-style: none; display: flex;
-            flex-wrap: nowrap; /* Prevents wrapping to the next line */
+            flex-wrap: nowrap;
         }
         #landing-page-menu a { display: block; padding: 0 20px; line-height: 40px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s ease-in-out, border-bottom-color 0.3s ease-in-out; border-bottom: 3px solid transparent; }
         #landing-page-menu a:hover { color: white; border-bottom-color: var(--accent-green); }
@@ -191,16 +189,22 @@
         #landing-page-mode section .slide-content { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
         #landing-page-mode section.is-visible .slide-content { opacity: 1; transform: translateY(0); }
 
+        /* --- UPDATED: Fix height for "Khách hàng" slide --- */
         #slide-pres-khach-hang .text-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 2%;
             height: 100%;
+            min-height: 0;
+        }
+        #slide-pres-khach-hang .text-content h2 {
+            flex-shrink: 0;
         }
          #slide-pres-khach-hang .text-content .card {
             margin-bottom: 0;
-            flex-grow: 1;
+            flex-shrink: 1;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -214,7 +218,7 @@
              #mobile-menu-toggle { display: block; }
              #landing-page-menu.menu-open ul { 
                 position: absolute; top: 100%; left: 0; width: 100%; 
-                margin: 0; /* Reset centering for mobile view */
+                margin: 0;
                 background: var(--card-bg); flex-direction: column; padding: 0;
                 display: flex;
              }
@@ -322,7 +326,7 @@
                     </div>
                 </div>` },
             { id: "doi-tac", menuTitle: "Đối tác", html: `<div class="slide-content"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;"><h2 class="animated">Hệ sinh thái Đối tác & Khách hàng</h2><p class="animated delay-1">Chúng tôi tự hào được tin dùng bởi các thương hiệu hàng đầu trong ngành Bán lẻ, F&B và Logistics.</p><div class="logo-grid-15 animated delay-2">
-                    <div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/thegioididong.com" alt="Thế Giới Di Động"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/fptshop.com.vn" alt="FPT Shop"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/cellphones.com.vn" alt="CellphoneS"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/winmart.vn" alt="WinMart"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/pharmacity.vn" alt="Pharmacity"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://logo.clearbit.com/tiki.vn" alt="Tiki"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/shopee.vn" alt="Shopee"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/lazada.vn" alt="Lazada"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/sendo.vn" alt="Sendo"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/thecoffeehouse.com" alt="The Coffee House"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/highlandscoffee.com.vn" alt="Highlands Coffee"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://media.licdn.com/dms/image/v2/C561BAQGl_5bNPhZm-A/company-background_10000/company-background_10000/0/1616738980932/happy_skin_vietnam_cover?e=2147483647&v=beta&t=qUMHM1RHWlvt68pDqPYD8GkK6471TIfs4xtw8Kd6j9I" alt="Happy Skin"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/viettelpost.com.vn" alt="Viettel Post"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/ghn.vn" alt="GHN"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/grab.com" alt="Grab"></div>
+                    <div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/thegioididong.com" alt="Thế Giới Di Động"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/fptshop.com.vn" alt="FPT Shop"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/cellphones.com.vn" alt="CellphoneS"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/winmart.vn" alt="WinMart"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/pharmacity.vn" alt="Pharmacity"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://logo.clearbit.com/tiki.vn" alt="Tiki"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/shopee.vn" alt="Shopee"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/lazada.vn" alt="Lazada"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/sendo.vn" alt="Sendo"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/thecoffeehouse.com" alt="The Coffee House"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/highlandscoffee.com.vn" alt="Highlands Coffee"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://file.hstatic.net/1000293977/file/logo_happyskin_2_7e651833783a483db460c5a2428d0897.png" alt="Happy Skin"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/viettelpost.com.vn" alt="Viettel Post"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/ghn.vn" alt="GHN"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/grab.com" alt="Grab"></div>
                 </div></div></div>` },
             { id: "khach-hang", menuTitle: "Khách hàng", html: `<div class="slide-content"><div class="content-wrapper"><div class="split-layout"><div class="image-content animated"><img src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phản hồi khách hàng"></div><div class="text-content animated delay-1"><h2>Khách hàng nói gì?</h2><div class="card"><h3>⭐ Minh bạch & Hiệu quả</h3><p>"InnoFlex ERP đã thực sự thay đổi cách chúng tôi quản lý tồn kho và đơn hàng. Mọi thứ trở nên minh bạch và hiệu quả hơn rất nhiều. Hệ thống giúp chúng tôi theo dõi mọi sản phẩm từ khi nhập kho đến khi giao, đảm bảo độ chính xác cao."</p><footer style="text-align:right; margin-top:1rem; font-style:italic;"><b>- Trần Văn Minh</b><br><span style="font-size:0.9em;">Trưởng phòng Vận hành, The ABC Group</span></footer></div><div class="card"><h3>🤝 Đối tác đồng hành</h3><p>"Không chỉ là một phần mềm, mà là một đối tác thực sự. Các tính năng phân tích cung cấp thông tin chi tiết quý giá để ra quyết định kinh doanh sáng suốt. Sự hỗ trợ của đội ngũ InnoFlex cũng rất tuyệt vời."</p><footer style="text-align:right; margin-top:1rem; font-style:italic;"><b>- Lê Thị Bích Hằng</b><br><span style="font-size:0.9em;">Giám đốc Tài chính, XYZ Retail</span></footer></div></div></div></div></div>` },
             { id: "doi-ngu", menuTitle: "Đội ngũ", html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">Đội ngũ chuyên gia - Sự an tâm của bạn</h2><div class="grid-container-fill grid-3-fill"><div class="card animated delay-1" style="text-align:center;"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Founder" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Tấn Hiền</h3><p><b>Founder & CEO</b><br>Với tầm nhìn chiến lược, anh Hiền dẫn dắt InnoFlex ERP hướng tới những giải pháp đột phá.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=400" alt="COO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Mạnh Tân</h3><p><b>Co-Founder & COO</b><br>Anh Tân chịu trách nhiệm vận hành, đảm bảo mọi quy trình diễn ra suôn sẻ và hiệu quả.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=400" alt="CTO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Văn Hòa</h3><p><b>Co-Founder & CTO</b><br>Anh Hòa là kiến trúc sư công nghệ, đảm bảo hệ thống vững chắc.</p></div></div></div></div>` },
@@ -427,7 +431,7 @@
                             { label: 'MISA AMIS', data: [{x: 72, y: 78, r: 17}], backgroundColor: 'rgba(249, 115, 22, 0.7)' },
                             { label: 'Bravo', data: [{x: 68, y: 82, r: 15}], backgroundColor: 'rgba(96, 165, 250, 0.7)' },
                         ];
-                        // --- UPDATED: Increase bubble size by 50% ---
+                        
                         const scaledData = originalData.map(dataset => {
                             const scaledDataset = { ...dataset };
                             scaledDataset.data = dataset.data.map(point => ({ ...point, r: point.r * 1.5 }));
@@ -485,17 +489,9 @@
                                         titleFont: { family: "'Be Vietnam Pro', sans-serif" }, bodyFont: { family: "'Be Vietnam Pro', sans-serif" }, boxPadding: 8,
                                         callbacks: { footer: (tooltipItems) => `Điểm trung bình: ${averageScores[tooltipItems[0].datasetIndex]}` }
                                     },
-                                    // --- UPDATED: Always display labels, but make them context-aware on hover in a different way ---
                                     datalabels: { 
-                                        display: true, // Always attempt to display
-                                        color: (context) => {
-                                            const activeElements = context.chart.getActiveElements();
-                                            if (activeElements.length > 0 && activeElements[0].datasetIndex !== context.datasetIndex) {
-                                                return 'transparent'; // Hide labels of non-hovered datasets
-                                            }
-                                            return 'rgba(255, 255, 255, 0.9)'; // Show label for hovered or all if none is hovered
-                                        },
-                                        font: { weight: 'bold' },
+                                        display: true,
+                                        color: 'rgba(255, 255, 255, 0.9)', font: { weight: 'bold' },
                                         anchor: 'end', align: 'start', offset: 5,
                                         formatter: (value) => Math.round(value * 10) / 10
                                     }

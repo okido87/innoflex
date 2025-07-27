@@ -193,20 +193,30 @@
         #landing-page-mode #dinh-vi-san-pham .chart-container,
         #landing-page-mode #so-sanh-giai-phap .chart-container { min-height: 70vh; }
         
+        /* START: Menu style changes */
         #landing-page-menu {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             box-shadow: none;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex; align-items: center; /* MODIFIED: Removed justify-content */
             padding: 10px 20px; box-sizing: border-box; height: 60px;
         }
         .menu-left, .menu-right { display: flex; align-items: center; gap: 15px; }
         #landing-page-logo { height: 35px; width: auto; flex-shrink: 0; }
-        #landing-page-menu ul { margin: 0 auto; padding: 0; list-style: none; display: flex; flex-wrap: nowrap; }
+        #landing-page-menu ul {
+            flex-grow: 1; /* ADDED: To fill available space */
+            justify-content: center; /* ADDED: To center menu items */
+            margin: 0; /* MODIFIED */
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: nowrap;
+        }
         #landing-page-menu a { font-size: 1.1rem; display: block; padding: 0 20px; line-height: 40px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s ease-in-out, border-bottom-color 0.3s ease-in-out; border-bottom: 3px solid transparent; }
         #landing-page-menu a:hover { color: white; border-bottom-color: var(--accent-green); }
         #landing-page-menu a.active { color: white; border-bottom-color: var(--accent-blue); }
-        
+        /* END: Menu style changes */
+
         .logo-container {
             display: flex;
             align-items: center;
@@ -488,7 +498,7 @@
             { id: "so-sanh-giai-phap", menuTitle: "So sánh", html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">InnoFlex ERP ở đâu giữa các giải pháp?</h2><div class="chart-container animated delay-2"><canvas id="solutionRadarChart"></canvas></div></div></div>`},
             // SLIDE 11 (FIXED: Subtitle removed)
             { id: "dinh-vi-san-pham", html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">Định vị InnoFlex ERP trên Thị trường</h2><div class="chart-container animated delay-2"><canvas id="positioningChart"></canvas></div></div></div>` },
-            { id: "chien-luoc-so-hoa", menuTitle: "Chiến lược",html: `<div class="slide-content"><div class="content-wrapper">
+            { id: "chien-luoc-so-hoa",html: `<div class="slide-content"><div class="content-wrapper">
                     <h2 class="animated">Lộ trình Chuyển đổi số cùng InnoFlex ERP</h2>
                     <p class="animated delay-1" style="max-width: 90%; margin: 0 auto 1.5rem auto;">Chúng tôi đồng hành cùng doanh nghiệp qua từng giai đoạn, từ chuẩn hóa nền tảng đến tự động hóa thông minh để tăng trưởng bền vững.</p>
                     <div class="grid-container-fill grid-3-fill">
@@ -596,7 +606,8 @@
             // END: Header modification
             
             slideData.forEach((data) => {
-                if (data.showInMenu !== false) {
+                // MODIFIED: Ensure item has a title and is not explicitly hidden
+                if (data.menuTitle && data.showInMenu !== false) {
                     const li = document.createElement('li');
                     const a = document.createElement('a');
                     a.href = `#${data.id}`;

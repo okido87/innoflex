@@ -69,6 +69,7 @@
         .slide.active .animated { animation: fadeInUp 0.8s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) both; }
         .slide.active .delay-1 { animation-delay: 0.45s; }
         .slide.active .delay-2 { animation-delay: 0.6s; }
+        .slide.active .delay-3 { animation-delay: 0.75s; }
         
         .slide-viewport {
             width: 100%;
@@ -125,6 +126,36 @@
             background-color: rgba(11, 17, 32, 0.7);
         }
         /* END: Special container for the intro slide */
+        
+        /* START: KPI Styles */
+        .kpi-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        .kpi-item {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        .kpi-number-container {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin: 0 0 0.5rem 0;
+        }
+        .kpi-label {
+            font-size: clamp(0.9rem, 1.2vw, 1rem);
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin: 0;
+        }
+        /* END: KPI Styles */
+
 
         .split-layout { display: flex; flex-direction: row; align-items: stretch; gap: 2%; width: 100%; height: 100%; text-align: left; }
         .text-content { flex: 1.2; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
@@ -165,7 +196,7 @@
         #landing-page-menu {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px var(--shadow-color);
+            box-shadow: none; /* MODIFIED: Removed shadow */
             display: flex; align-items: center; justify-content: space-between;
             padding: 10px 20px; box-sizing: border-box; height: 60px;
         }
@@ -434,8 +465,8 @@
 
     <script>
         const slideData = [
-            // SLIDE 1 (REVISED to use a dedicated, full-screen container and larger logo)
-            { id: "gioi-thieu", menuTitle: "Giới thiệu", html: `<div class="slide-intro-container"><img src="https://gpems.net/logo-icon.png" alt="InnoFlex ERP Logo" class="animated" style="max-width: 180px; height: auto; margin-bottom: 1.5rem;"><h2 class="animated delay-1" style="border: none; margin-bottom: 1rem; font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 900; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);">InnoFlex ERP</h2><p class="animated delay-2" style="font-size: clamp(1.2rem, 2.4vw, 2.1rem); color: var(--text-primary); font-weight: 400; max-width: 90%; margin: 0 auto 1.5rem auto;">Giải pháp Vận Hành Bán Lẻ Đa Kênh Toàn diện</p><hr class="divider-line animated delay-2" style="margin-bottom: 1.5rem;"><p class="animated delay-2" style="font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--accent-green); font-weight: 500; letter-spacing: 1px; margin-top: 0;">CÔNG TY TNHH GIẢI PHÁP SỐ EMS</p><div class="version-info animated delay-2" style="position: static; margin-top: 1.5rem; opacity: 0.8;">Version 2.0 | July 2025</div></div>` },
+            // SLIDE 1 (ADDED KPIs)
+            { id: "gioi-thieu", menuTitle: "Giới thiệu", html: `<div class="slide-intro-container"><img src="https://gpems.net/logo-icon.png" alt="InnoFlex ERP Logo" class="animated" style="max-width: 180px; height: auto; margin-bottom: 1.5rem; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));"><h2 class="animated delay-1" style="border: none; margin-bottom: 1rem; font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 900; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);">InnoFlex ERP</h2><p class="animated delay-2" style="font-size: clamp(1.2rem, 2.4vw, 2.1rem); color: var(--text-primary); font-weight: 400; max-width: 90%; margin: 0 auto 1.5rem auto;">Giải pháp Vận Hành Bán Lẻ Đa Kênh Toàn diện</p><div class="kpi-container animated delay-3"><div class="kpi-item"><p class="kpi-number-container"><span class="kpi-number" data-target="10">0</span>+</p><p class="kpi-label">Kênh TMĐT</p></div><div class="kpi-item"><p class="kpi-number-container"><span class="kpi-number" data-target="100">0</span>+</p><p class="kpi-label">Khách hàng</p></div><div class="kpi-item"><p class="kpi-number-container">+<span class="kpi-number" data-target="2.5">0.0</span>M</p><p class="kpi-label">Đơn / ngày</p></div><div class="kpi-item"><p class="kpi-number-container">+<span class="kpi-number" data-target="60">0</span>%</p><p class="kpi-label">Tiết kiệm T.Gian & C.Phí</p></div></div><hr class="divider-line animated delay-3" style="margin-top:0; margin-bottom: 1.5rem;"><p class="animated delay-3" style="font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--accent-green); font-weight: 500; letter-spacing: 1px; margin-top: 0;">CÔNG TY TNHH GIẢI PHÁP SỐ EMS</p><div class="version-info animated delay-3" style="position: static; margin-top: 1rem; opacity: 0.8;">Version 2.0 | July 2025</div></div>` },
             { id: "khach-hang-dau-tien", menuTitle: "Dogfooding", showInMenu: false, html: `<div class="slide-content"><div class="content-wrapper"><div class="split-layout"><div class="text-content animated"><h2 style="border-bottom:none; padding-bottom:0;">Chúng tôi là khách hàng đầu tiên & khó tính nhất</h2><p>InnoFlex ERP được sinh ra từ chính nhu cầu vận hành nội bộ. Mỗi tính năng, mỗi quy trình đều được đội ngũ EMS sử dụng, kiểm thử và tối ưu hàng ngày trước khi đến tay bạn.</p><div class="card" style="flex-grow: 1; justify-content: center;"><h3>Từ lý thuyết đến thực chiến:</h3><ul style="list-style-type: none; padding-left: 0;"><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 1.5C14.1565 1.5 16.2238 2.12239 17.9622 3.28612C18.1793 3.42846 18.2374 3.71439 18.095 3.93153C17.9527 4.14867 17.6668 4.20677 17.4496 4.06443C15.9082 3.03361 14.0049 2.5 11.9999 2.5C6.47708 2.5 2.00001 6.97716 2.00001 12.5C2.00001 18.0228 6.47708 22.5 11.9999 22.5C17.5227 22.5 21.9999 18.0228 21.9999 12.5V12C21.9999 11.7238 21.776 11.5 21.4999 11.5C21.2238 11.5 20.9999 11.7238 20.9999 12V12.5C20.9999 17.4705 16.9704 21.5 11.9999 21.5C7.02936 21.5 3.00001 17.4705 3.00001 12.5C3.00001 7.52944 7.02936 3.5 11.9999 3.5C13.8052 3.5 15.4925 4.03215 16.9143 4.96637L15.7224 5.9221C15.5323 6.07723 15.5039 6.35502 15.659 6.54515C15.8142 6.73528 16.092 6.76363 16.2821 6.6085L18.4321 4.8585C18.601 4.71764 18.6366 4.47369 18.5205 4.28821L17.5205 2.53821C17.4044 2.35273 17.1604 2.26286 16.975 2.37898L11.9999 5.5V1.5Z" /></svg><b>Tự dùng sản phẩm (Dogfooding):</b> Giải quyết bài toán của chính mình trước khi giải quyết cho khách hàng.</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C13.3768 2 14.721 2.38558 15.9083 3.12327L16.2192 3.32833C16.892 3.77484 17.4695 4.35234 17.916 5.02518L18.1211 5.33602C18.8588 6.52332 19.2444 7.86749 19.2444 9.24436V9.75564C19.2444 11.1325 18.8588 12.4767 18.1211 13.664L17.916 13.9748C17.4695 14.6477 16.892 15.2252 16.2192 15.6717L15.9083 15.8767C14.721 16.6144 13.3768 17 12 17C10.6232 17 9.27902 16.6144 8.09173 15.8767L7.78083 15.6717C7.10804 15.2252 6.53053 14.6477 6.08399 13.9748L5.87889 13.664C5.1412 12.4767 4.75562 11.1325 4.75562 9.75564V9.24436C4.75562 7.86749 5.1412 6.52332 5.87889 5.33602L6.08399 5.02518C6.53053 4.35234 7.10804 3.77484 7.78083 3.32833L8.09173 3.12327C9.27902 2.38558 10.6232 2 12 2ZM12 22C12.5523 22 13 21.5523 13 21V19H11V21C11 21.5523 11.4477 22 12 22ZM17 18.1213C17.7126 17.9228 18.3978 17.653 19.0456 17.3197L20.0104 19.247C19.8242 19.336 19.6335 19.4182 19.4389 19.4936C19.0573 19.6421 18.8471 20.076 19.0069 20.4632C19.1667 20.8504 19.6087 21.0544 19.9931 20.8878L21.3789 20.2949C21.7633 20.1283 21.9673 19.6863 21.8075 19.2991C21.6477 18.9119 21.2057 18.7079 20.8213 18.8745L19.8565 19.3018C19.2415 19.5539 18.5833 19.7428 17.8944 19.8665C17.4702 19.9461 17.1818 20.3706 17.2614 20.7948C17.341 21.219 17.7655 21.5074 18.1897 21.4278C19.0116 21.2821 19.792 21.0663 20.5212 20.7857L17 18.1213Z" /></svg><b>Thử nghiệm thực tế:</b> Hệ thống đã và đang xử lý hàng chục nghìn đơn hàng mỗi tháng của chính EMS.</li><li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61483 7.84006L12.0006 0.5L15.3864 7.84006L23.4133 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2542 13.5908L18.8719 10.2674L14.0393 9.69434L12.0006 5.27502L9.96187 9.69434L5.12931 10.2674L8.74705 13.5908L7.75395 18.3451L12.0006 15.968Z" /></svg><b>Đồng cảm sâu sắc:</b> Chúng tôi hiểu rõ "nỗi đau" của bạn vì chính chúng tôi đã và đang trải qua điều đó.</li></ul></div></div><div class="image-content animated delay-1"><img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Đội ngũ làm việc"></div></div></div></div>` },
             { id: "noi-dau-tong-quan", menuTitle: "Tổng quan", html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">Từ Rời rạc đến Tích hợp: Nỗi đau & Lời giải</h2><p class="animated delay-1" style="max-width: 90%; margin: 0 auto 1.5rem auto;">Các vấn đề trong ngành bán lẻ thường bắt nguồn từ sự thiếu liên kết giữa các bộ phận, dẫn đến những hệ quả ảnh hưởng trực tiếp đến lợi nhuận.</p><div class="grid-container-fill grid-2-fill"><div class="card animated delay-2"><h3>🚨 Nguyên nhân Cốt lõi</h3><img src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nguyên nhân" class="illustration"><ul style="list-style:none; padding:0;"><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Kế toán & Vận hành không "nói chuyện" với nhau.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không phân bổ chi phí (marketing, vận hành) theo kênh.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Thiếu quy trình chuẩn hóa cho các nghiệp vụ phức tạp.</li></ul></div><div class="card animated delay-2"><h3>🔍 Hệ quả Trực tiếp</h3><img src="https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hệ quả" class="illustration"><ul style="list-style:none; padding:0;"><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không biết kênh nào đang Lỗ hay Lãi thực sự.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không quản lý được dòng tiền về, thất thoát công nợ.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg>Không thể mở rộng quy mô một cách bền vững.</li></ul></div></div></div></div>` },
             { id: "thach-thuc", menuTitle: "Thách thức", showInMenu: false, html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">"Nỗi đau" Chi tiết theo Phòng ban</h2><div class="grid-container-fill grid-3-fill"><div class="card animated delay-1"><h3>⚙️ Vận hành & Kho</h3><img src="https://images.pexels.com/photos/4483609/pexels-photo-4483609.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Vận hành" class="illustration"><ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z" /></svg><b>Sai sót tồn kho:</b> Chênh lệch liên tục giữa sàn, kho vật lý và hệ thống.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5l.415-.207a.75.75 0 011.085.67V10.5m0 0h6m-6 0a.75.75 0 00-.75.75v3a.75.75 0 00.75.75h6a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75H8.25z" /></svg><b>Đóng đơn sai, thất thoát:</b> Tách/gộp combo, quà tặng thủ công dẫn đến nhầm lẫn.</li></ul></div><div class="card animated delay-2"><h3>📊 Tài chính & Kế toán</h3><img src="https://images.pexels.com/photos/7567561/pexels-photo-7567561.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tài chính" class="illustration"><ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 000 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622a11.99 11.99 0 00-3.598-3.75c-.623-.38-.992-.38-1.602 0l-1.601.982z" /></svg><b>Sổ sách rời rạc:</b> Dữ liệu tài chính và quản trị không liên kết, đối chiếu thủ công.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg><b>Mù mờ dòng tiền:</b> Không biết chính xác khi nào tiền từ các sàn về, khó kiểm soát công nợ.</li></ul></div><div class="card animated delay-1"><h3>🖥️ Công nghệ & Ban lãnh đạo</h3><img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Công nghệ" class="illustration"><ul><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg><b>Hệ thống manh mún:</b> Dùng nhiều phần mềm rời rạc, dữ liệu không đồng bộ.</li><li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg><b>"Rác" dữ liệu:</b> Khó ra quyết định chính xác vì thiếu dữ liệu sạch, tập trung.</li></ul></div></div></div></div>` },
@@ -499,15 +530,15 @@
                     </div>
                 </div>` },
             { id: "doi-tac", menuTitle: "Đối tác", html: `<div class="slide-content"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;"><h2 class="animated">Hệ sinh thái Đối tác & Khách hàng</h2><p class="animated delay-1">Chúng tôi tự hào được tin dùng bởi các thương hiệu hàng đầu trong ngành Bán lẻ, F&B và Logistics.</p><div class="logo-grid-15 animated delay-2">
-                    <div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/thegioididong.com" alt="Thế Giới Di Động"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/fptshop.com.vn" alt="FPT Shop"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/cellphones.com.vn" alt="CellphoneS"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/winmart.vn" alt="WinMart"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/pharmacity.vn" alt="Pharmacity"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://logo.clearbit.com/tiki.vn" alt="Tiki"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/shopee.vn" alt="Shopee"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/lazada.vn" alt="Lazada"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/sendo.vn" alt="Sendo"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/thecoffeehouse.com" alt="The Coffee House"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/highlandscoffee.com.vn" alt="Highlands Coffee"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://images.squarespace-cdn.com/content/v1/5c18406e2714e5bb945a05b2/1546924842797-4841L0V42F2N2Y5322V9/happyskin-logo.png" alt="Happy Skin"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/viettelpost.com.vn" alt="Viettel Post"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/ghn.vn" alt="GHN"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/grab.com" alt="Grab"></div>
+                    <div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/thegioididong.com" alt="Thế Giới Di Động"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/fptshop.com.vn" alt="FPT Shop"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/cellphones.com.vn" alt="CellphoneS"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/winmart.vn" alt="WinMart"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/pharmacity.vn" alt="Pharmacity"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://logo.clearbit.com/tiki.vn" alt="Tiki"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/shopee.vn" alt="Shopee"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/lazada.vn" alt="Lazada"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/sendo.vn" alt="Sendo"></div><div class="logo" style="animation-delay: 0.2s;"><img src="https://logo.clearbit.com/thecoffeehouse.com" alt="The Coffee House"></div><div class="logo" style="animation-delay: 0.4s;"><img src="https://logo.clearbit.com/highlandscoffee.com.vn" alt="Highlands Coffee"></div><div class="logo" style="animation-delay: 0.6s;"><img src="https://media.licdn.com/dms/image/v2/C561BAQGl_5bNPhZm-A/company-background_10000/company-background_10000/0/1616738980932/happy_skin_vietnam_cover?e=2147483647&v=beta&t=qUMHM1RHWlvt68pDqPYD8GkK6471TIfs4xtw8Kd6j9I" alt="Happy Skin"></div><div class="logo" style="animation-delay: 0.1s;"><img src="https://logo.clearbit.com/viettelpost.com.vn" alt="Viettel Post"></div><div class="logo" style="animation-delay: 0.3s;"><img src="https://logo.clearbit.com/ghn.vn" alt="GHN"></div><div class="logo" style="animation-delay: 0.5s;"><img src="https://logo.clearbit.com/grab.com" alt="Grab"></div>
                 </div></div></div>` },
             { id: "khach-hang", menuTitle: "Khách hàng", html: `<div class="slide-content"><div class="content-wrapper"><div class="split-layout"><div class="image-content animated"><img src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Phản hồi khách hàng"></div><div class="text-content animated delay-1"><h2>Khách hàng nói gì?</h2><div class="card"><h3>⭐ Minh bạch & Hiệu quả</h3><p>"InnoFlex ERP đã thực sự thay đổi cách chúng tôi quản lý tồn kho và đơn hàng. Mọi thứ trở nên minh bạch và hiệu quả hơn rất nhiều. Hệ thống giúp chúng tôi theo dõi mọi sản phẩm từ khi nhập kho đến khi giao, đảm bảo độ chính xác cao."</p><footer style="text-align:right; margin-top:1rem; font-style:italic;"><b>- Trần Văn Minh</b><br><span style="font-size:0.9em;">Trưởng phòng Vận hành, The ABC Group</span></footer></div><div class="card"><h3>🤝 Đối tác đồng hành</h3><p>"Không chỉ là một phần mềm, mà là một đối tác thực sự. Các tính năng phân tích cung cấp thông tin chi tiết quý giá để ra quyết định kinh doanh sáng suốt. Sự hỗ trợ của đội ngũ InnoFlex cũng rất tuyệt vời."</p><footer style="text-align:right; margin-top:1rem; font-style:italic;"><b>- Lê Thị Bích Hằng</b><br><span style="font-size:0.9em;">Giám đốc Tài chính, XYZ Retail</span></footer></div></div></div></div></div>` },
             { id: "doi-ngu", menuTitle: "Đội ngũ", html: `<div class="slide-content"><div class="content-wrapper"><h2 class="animated">Đội ngũ chuyên gia - Sự an tâm của bạn</h2><div class="grid-container-fill grid-3-fill"><div class="card animated delay-1" style="text-align:center;"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Founder" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Tấn Hiền</h3><p><b>Founder & CEO</b><br>Với tầm nhìn chiến lược, anh Hiền dẫn dắt InnoFlex ERP hướng tới những giải pháp đột phá.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=400" alt="COO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Mạnh Tân</h3><p><b>Co-Founder & COO</b><br>Anh Tân chịu trách nhiệm vận hành, đảm bảo mọi quy trình diễn ra suôn sẻ và hiệu quả.</p></div><div class="card animated delay-2" style="text-align:center;"><img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=400" alt="CTO" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--accent-blue); object-fit: cover;"><h3>Nguyễn Văn Hòa</h3><p><b>Co-Founder & CTO</b><br>Anh Hòa là kiến trúc sư công nghệ, đảm bảo hệ thống vững chắc.</p></div></div></div></div>` },
-            { id: "lien-he", menuTitle: "Liên hệ", html: `<div class="slide-content" style="background-image: url('https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.7);"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;">
+            { id: "lien-he", menuTitle: "Liên hệ", html: `<div class="slide-content" style="background-image: url('https://cdn.prod.website-files.com/6420f704f2602a2ee7f79d26/646d4bb79ff76f75b218a08a_listicles-tech-image-large.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(11, 17, 32, 0.7);"><div class="content-wrapper" style="display:flex; flex-direction:column; justify-content:center;">
                <img src="https://gpems.net/logo-icon.png" 
                      alt="InnoFlex ERP Logo" 
                      class="centered-logo animated" 
-                     style="max-width: 150px;">
+                     style="max-width: 150px; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));">
      <h2 class="animated delay-1" style="border: none; margin-bottom: 1.5rem; text-transform: uppercase;">Số hóa Hệ thống Bán lẻ của bạn ngay</h2>
                 <p class="animated delay-1" style="max-width: 80%; margin: 0 auto 2.5rem auto;">Liên hệ với đội ngũ chuyên gia của chúng tôi để được tư vấn giải pháp phù hợp nhất, giúp doanh nghiệp của bạn bứt phá và dẫn đầu thị trường.</p>
                 <div class="card animated delay-2" style="max-width: 800px; margin: 0 auto; text-align: left;">
@@ -709,6 +740,41 @@
                     const customerChartCtx = containerElement.querySelector('#customerChart')?.getContext('2d'); if (charts.customerChart) charts.customerChart.destroy(); if(customerChartCtx) { charts.customerChart = new Chart(customerChartCtx, { type: 'bar', data: { labels: ['Tỷ lệ quay lại', 'Điểm CSAT'], datasets: [{ label: 'Tăng trưởng', data: [20, 30], backgroundColor: '#38bdf8', borderRadius: 4 }] }, options: { ...commonOptions, plugins: { ...commonOptions.plugins, tooltip: { callbacks: { label: c => ` +${c.parsed.y}%` }}}, scales: { y: { ...commonOptions.scales.y, ticks: { ...commonOptions.scales.y.ticks, callback: v => v + '%'}}}} }); }
                 }
             }
+            
+            // START: KPI Counter Animation
+            function animateKPIs(container) {
+                const counters = container.querySelectorAll('.kpi-number');
+                const duration = 1500; // Animation duration in milliseconds
+
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let startTimestamp = null;
+                    
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                        let currentValue = progress * target;
+                        
+                        if (target.toString().includes('.')) {
+                             counter.innerText = currentValue.toFixed(1);
+                        } else {
+                             counter.innerText = Math.floor(currentValue);
+                        }
+
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            // Ensure the final value is exact
+                            counter.innerText = target;
+                        }
+                    };
+                    
+                    // Reset to 0 before starting
+                    counter.innerText = target.toString().includes('.') ? '0.0' : '0';
+                    window.requestAnimationFrame(step);
+                });
+            }
+            // END: KPI Counter Animation
 
             let updateSlide;
 
@@ -739,13 +805,13 @@
             presentationContainer.addEventListener('touchstart', function(event) {
                 touchStartX = event.changedTouches[0].screenX;
                 touchStartY = event.changedTouches[0].screenY;
-            }, false);
+            }, { passive: true });
 
             presentationContainer.addEventListener('touchend', function(event) {
                 touchEndX = event.changedTouches[0].screenX;
                 touchEndY = event.changedTouches[0].screenY;
                 handleSwipeGesture();
-            }, false); 
+            }, { passive: true }); 
 
             function handleSwipeGesture() {
                 const deltaX = touchEndX - touchStartX;
@@ -868,6 +934,9 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
                         const slideId = slideData.find(s => s.id === entry.target.id)?.id;
+                        if (slideId === 'gioi-thieu') {
+                           animateKPIs(entry.target);
+                        }
                         if (slideId === 'gia-tri' || slideId === 'dinh-vi-san-pham' || slideId === 'so-sanh-giai-phap') {
                            renderCharts(entry.target, slideId);
                         }
@@ -893,6 +962,10 @@
                 const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
                 progressBar.style.width = `${progressPercentage}%`;
                 const newSlideId = slideData[currentSlide].id;
+                
+                if (newSlideId === 'gioi-thieu') {
+                    setTimeout(() => animateKPIs(slides[currentSlide]), 400); // Trigger KPI animation on slide change
+                }
                 if (newSlideId === 'gia-tri' || newSlideId === 'dinh-vi-san-pham' || newSlideId === 'so-sanh-giai-phap') {
                     setTimeout(() => renderCharts(slides[currentSlide], newSlideId), 400); 
                 }
